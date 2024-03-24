@@ -29,7 +29,10 @@ class InviteTeamMember implements InvitesTeamMembers
 
         InvitingTeamMember::dispatch($team, $email, $role);
 
-        $invitation = $team->teamInvitations()->create([
+        /**
+         * @var \App\Models\TeamInvitation $invitation
+         */
+         $invitation = $team->teamInvitations()->create([
             'email' => $email,
             'role' => $role,
         ]);
