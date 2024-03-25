@@ -32,7 +32,7 @@ class InviteTeamMember implements InvitesTeamMembers
         /**
          * @var \App\Models\TeamInvitation $invitation
          */
-         $invitation = $team->teamInvitations()->create([
+        $invitation = $team->teamInvitations()->create([
             'email' => $email,
             'role' => $role,
         ]);
