@@ -15,7 +15,11 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "league/commonmark": "^2.4",
+        "nunomaduro/laravel-console-summary": "^1.11",
+        "nunomaduro/termwind": "^2.0",
         "openai-php/laravel": "^0.8.1",
+        "scrivo/highlight.php": "^9.18",
+        "silber/bouncer": "^1.0",
         "tightenco/ziggy": "^2.0"
     },
     "require-dev": {
