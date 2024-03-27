@@ -2,13 +2,10 @@
 
 namespace App\Console\Commands;
 
+use Highlight\Highlighter;
 use Illuminate\Console\Command;
-use Illuminate\Support\Str;
-use JakubOnderka\PhpConsoleColor\ConsoleColor;
-use JakubOnderka\PhpConsoleHighlighter\Highlighter;
 use OpenAI\Laravel\Facades\OpenAI;
 
-use Symfony\Component\Console\Helper\Table;
 use function Laravel\Prompts\spin;
 use function Laravel\Prompts\text;
 use function Termwind\render;
@@ -31,7 +28,23 @@ class AskOpenAi extends Command
 
     public function handle(): void
     {
+
+        // multi-line html...
+        render(<<<'HTML'
+    <div>
+        <div class="px-1 bg-blue-300 text-green-600">Ask Open AI</div>
+        <em class="ml-1">
+        I think code highlighting actually works too! Let's try it out.
+        </em>
+    </div>
+HTML
+        );
         $question = text('What is your question?');
+
+        //list all models /
+         $models = OpenAI::Models()->list();
+
+        dd($models);
 
         $result = spin(
             fn() => OpenAI::chat()->create([
@@ -47,17 +60,7 @@ class AskOpenAi extends Command
 
     protected function formatResponse(string $content): void
     {
-        preg_match_all('/```(?:[a-z]+\n)?(.*?)```/s', $content, $matches, PREG_SET_ORDER);
-
-        $consoleColor = new ConsoleColor();
-        $highlighter = new Highlighter($consoleColor);
-
-        foreach ($matches as $match) {
-            $highlightedCode = $highlighter->getWholeFile($match[1]);
-            $content = str_replace($match[0], $highlightedCode, $content);
-        }
-
-        $this->line($content);
+        dd($content);
     }
 
 }
