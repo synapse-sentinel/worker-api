@@ -38,7 +38,7 @@ class CreateUser extends Command
         $providedParams = $this->askForMissingParams($userAttributes);
 
         // Create a new user using the Fortify action
-        $newUser = (new CreateNewUser)->create([
+        $newUser = (new CreateNewUser())->create([
             'name' => $providedParams['name'],
             'email' => $providedParams['email'],
             'password' => $providedParams['password'],
@@ -61,15 +61,19 @@ class CreateUser extends Command
         $userAttributes['name'] = text(
             label: 'Enter the user\'s name:',
             default: $userAttributes['name'],
-            validate: 'required|string|max:255');
+            validate: 'required|string|max:255'
+        );
 
-        $userAttributes['email'] = text(label: 'Enter the user\'s email:',
+        $userAttributes['email'] = text(
+            label: 'Enter the user\'s email:',
             default: $userAttributes['email'] != null ? $userAttributes['email'] : '',
-            validate: 'required|email|max:255|unique:users,email');
+            validate: 'required|email|max:255|unique:users,email'
+        );
 
         $userAttributes['password'] = password(
             label: 'Enter the user\'s password:',
-            validate: 'required|string|min:8');
+            validate: 'required|string|min:8'
+        );
 
         return $userAttributes;
     }

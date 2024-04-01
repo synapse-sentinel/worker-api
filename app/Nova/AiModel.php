@@ -2,7 +2,7 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
+use App\Nova\Actions\SyncModels;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
@@ -15,7 +15,7 @@ class AiModel extends Resource
      *
      * @var class-string<\App\Models\AiModel>
      */
-    public static $model = \App\Models\AiModel::class;
+    public static string $model = \App\Models\AiModel::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -35,60 +35,48 @@ class AiModel extends Resource
 
     /**
      * Get the fields displayed by the resource.
-     *
-     * @param NovaRequest $request
-     * @return array
      */
     public function fields(NovaRequest $request): array
     {
         return [
             ID::make()->sortable(),
             Text::make(__('Name'), 'name')->sortable(),
+            Text::make(__('Owned By'), 'owned_by')->sortable(),
             Textarea::make(__('Description'), 'description')->sortable(),
         ];
     }
 
     /**
      * Get the cards available for the request.
-     *
-     * @param NovaRequest $request
-     * @return array
      */
-    public function cards(NovaRequest $request)
+    public function cards(NovaRequest $request): array
     {
         return [];
     }
 
     /**
      * Get the filters available for the resource.
-     *
-     * @param NovaRequest $request
-     * @return array
      */
-    public function filters(NovaRequest $request)
+    public function filters(NovaRequest $request): array
     {
         return [];
     }
 
     /**
      * Get the lenses available for the resource.
-     *
-     * @param NovaRequest $request
-     * @return array
      */
-    public function lenses(NovaRequest $request)
+    public function lenses(NovaRequest $request): array
     {
         return [];
     }
 
     /**
      * Get the actions available for the resource.
-     *
-     * @param NovaRequest $request
-     * @return array
      */
-    public function actions(NovaRequest $request)
+    public function actions(NovaRequest $request): array
     {
-        return [];
+        return [
+            SyncModels::make()->standalone(),
+        ];
     }
 }

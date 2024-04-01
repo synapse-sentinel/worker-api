@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands;
 
-use Highlight\Highlighter;
 use Illuminate\Console\Command;
 use OpenAI\Laravel\Facades\OpenAI;
 
@@ -30,7 +29,8 @@ class AskOpenAi extends Command
     {
 
         // multi-line html...
-        render(<<<'HTML'
+        render(
+            <<<'HTML'
     <div>
         <div class="px-1 bg-blue-300 text-green-600">Ask Open AI</div>
         <em class="ml-1">
@@ -42,17 +42,18 @@ HTML
         $question = text('What is your question?');
 
         //list all models /
-         $models = OpenAI::Models()->list();
+        $models = OpenAI::Models()->list();
 
         dd($models);
 
         $result = spin(
-            fn() => OpenAI::chat()->create([
-                'model'    => 'gpt-3.5-turbo',
+            fn () => OpenAI::chat()->create([
+                'model' => 'gpt-3.5-turbo',
                 'messages' => [
                     ['role' => 'user', 'content' => $question],
                 ],
-            ]));
+            ])
+        );
 
         $content = $result['choices'][0]['message']['content'];
         $this->formatResponse($content);
@@ -62,5 +63,4 @@ HTML
     {
         dd($content);
     }
-
 }
