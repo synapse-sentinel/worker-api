@@ -3,7 +3,7 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Models\assistant;
+use App\Models\Assistant;
 use Illuminate\Auth\Access\Response;
 
 class AssistantPolicy
@@ -19,7 +19,7 @@ class AssistantPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, assistant $assistant): bool
+    public function view(User $user, Assistant $assistant): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class AssistantPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, assistant $assistant): bool
+    public function update(User $user, Assistant $assistant): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class AssistantPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, assistant $assistant): bool
+    public function delete(User $user, Assistant $assistant): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class AssistantPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, assistant $assistant): bool
+    public function restore(User $user, Assistant $assistant): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class AssistantPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, assistant $assistant): bool
+    public function forceDelete(User $user, Assistant $assistant): bool
     {
         //
     }

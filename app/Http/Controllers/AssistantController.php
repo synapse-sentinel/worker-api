@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreassistantRequest;
 use App\Http\Requests\UpdateassistantRequest;
-use App\Models\assistant;
+use App\Models\Assistant;
 
 class AssistantController extends Controller
 {
@@ -35,7 +35,7 @@ class AssistantController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(assistant $assistant)
+    public function show(Assistant $assistant)
     {
         //
     }
@@ -43,7 +43,7 @@ class AssistantController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(assistant $assistant)
+    public function edit(Assistant $assistant)
     {
         //
     }
@@ -51,7 +51,7 @@ class AssistantController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateassistantRequest $request, assistant $assistant)
+    public function update(UpdateassistantRequest $request, Assistant $assistant)
     {
         //
     }
@@ -59,7 +59,7 @@ class AssistantController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(assistant $assistant)
+    public function destroy(Assistant $assistant)
     {
         //
     }
