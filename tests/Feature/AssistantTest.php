@@ -54,6 +54,7 @@ test('can be updated over api', function () {
     $this->put('/api/assistants/' . $model->id, ['name' => 'Updated Assistant'])
          ->assertStatus(200)
          ->assertJsonFragment(['name' => 'Updated Assistant']);
+
 });
 
 
