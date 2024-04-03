@@ -12,7 +12,9 @@ class AiModel extends Model
     use SoftDeletes;
 
     /**
-     * @var string[]
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
      */
     protected $fillable = [
         'name',

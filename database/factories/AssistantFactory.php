@@ -20,7 +20,7 @@ class AssistantFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'ai_model_id' => AiModel::factory()->create(),
+            'ai_model_id' => AiModel::factory()->create(['name' => 'gpt-4']),
             'instructions' => $this->faker->text,
         ];
     }

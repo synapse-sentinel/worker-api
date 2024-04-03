@@ -12,10 +12,15 @@ class AssistantObserver
      */
     public function created(Assistant $assistant): void
     {
-        $response = OpenAI::assistants()->create($assistant->toArray());
+        $response = OpenAI::assistants()->create([
+            'name' => $assistant->name,
+            'description' => $assistant->instructions,
+            'model' => $assistant->aiModel->name,
+        ]);
 
-        dd($response);
-
+        $assistant->update([
+            'provider_value' => $response['id'],
+        ]);
     }
 
     /**

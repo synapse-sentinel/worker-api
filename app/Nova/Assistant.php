@@ -4,8 +4,10 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Assistant extends Resource
@@ -48,10 +50,16 @@ class Assistant extends Resource
                 ->sortable()
                 ->rules('required', 'max:255')
                 ->creationRules('unique:assistants,name'),
+            Trix::make(__('Instructions'), 'instructions')
+                ->sortable()
+                ->rules('required'),
             BelongsTo::make(__('AI Model'), 'aiModel', AiModel::class)
                 ->sortable()
-                ->searchable()
                 ->rules('required'),
+            Text::make(__('Provider Value'), 'provider_value')->readonly(),
+            Text::make(__('Provider'), 'provider')->readonly(),
+            Date::make(__('Created At'), 'created_at')->sortable(),
+            Date::make(__('Updated At'), 'updated_at')->sortable(),
         ];
     }
 
