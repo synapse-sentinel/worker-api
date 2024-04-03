@@ -1,8 +1,6 @@
 <?php
 
 use App\Nova\Actions\SyncModels;
-use App\Jobs\SyncOpenAIModels;
-use Illuminate\Support\Facades\Queue;
 
 it('dispatches sync open ai models job', function () {
 

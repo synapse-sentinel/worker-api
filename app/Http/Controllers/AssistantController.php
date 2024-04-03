@@ -18,7 +18,6 @@ class AssistantController extends Controller
         return Assistant::query()->paginate();
     }
 
-
     /**
      * Store a newly created resource in storage.
      */
@@ -41,6 +40,7 @@ class AssistantController extends Controller
     public function update(UpdateAssistantRequest $request, Assistant $assistant): Assistant
     {
         $assistant->update($request->validated());
+
         return $assistant;
     }
 
@@ -50,6 +50,7 @@ class AssistantController extends Controller
     public function destroy(Assistant $assistant): Response
     {
         $assistant->delete();
+
         return response('Deleted', 204);
     }
 }

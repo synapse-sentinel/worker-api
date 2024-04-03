@@ -12,9 +12,9 @@ class AssistantObserver
      */
     public function created(Assistant $assistant): void
     {
-       $response = OpenAI::assistants()->create($assistant->toArray());
+        $response = OpenAI::assistants()->create($assistant->toArray());
 
-       dd($response);
+        dd($response);
 
     }
 

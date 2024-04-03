@@ -10,4 +10,3 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::resource('/assistants', \App\Http\Controllers\AssistantController::class);
 });
-

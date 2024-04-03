@@ -44,7 +44,6 @@ HTML
         //list all models /
         $models = OpenAI::Models()->list();
 
-
         $result = spin(
             fn () => OpenAI::chat()->create([
                 'model' => 'gpt-3.5-turbo',

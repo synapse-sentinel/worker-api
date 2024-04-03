@@ -12,7 +12,7 @@ class AiModel extends Model
     use SoftDeletes;
 
     /**
-     * @var string[] $fillable
+     * @var string[]
      */
     protected $fillable = [
         'name',

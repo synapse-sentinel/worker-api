@@ -18,8 +18,7 @@ class Assistant extends Model
     use SoftDeletes;
 
     #[ObservedBy([AssistantObserver::class])]
-
-    protected  $fillable = ['name','instructions','ai_model_id'];
+    protected $fillable = ['name', 'instructions', 'ai_model_id'];
 
     /**
      * Get the aiModel that belongs to the Assistant
