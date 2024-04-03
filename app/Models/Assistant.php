@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Observers\AssistantObserver;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -14,6 +16,8 @@ class Assistant extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    #[ObservedBy([AssistantObserver::class])]
 
     protected  $fillable = ['name','instructions','ai_model_id'];
 

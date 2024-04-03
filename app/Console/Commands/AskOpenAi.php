@@ -44,7 +44,6 @@ HTML
         //list all models /
         $models = OpenAI::Models()->list();
 
-        dd($models);
 
         $result = spin(
             fn () => OpenAI::chat()->create([

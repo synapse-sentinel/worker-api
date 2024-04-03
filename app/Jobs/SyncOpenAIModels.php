@@ -33,7 +33,6 @@ class SyncOpenAIModels
 
         $data = collect($response->toArray()['data']);
 
-        dd($data);
         $data->each(function ($model) {
             AiModel::updateOrCreate([
                 'name' => $model['id'],
