@@ -2,27 +2,27 @@
 
 namespace App\Nova;
 
-use App\Nova\Actions\SyncModels;
+use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class AiModel extends Resource
+class Assistant extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\AiModel>
+     * @var class-string<\App\Models\Assistant>
      */
-    public static string $model = \App\Models\AiModel::class;
+    public static $model = \App\Models\Assistant::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -31,23 +31,36 @@ class AiModel extends Resource
      */
     public static $search = [
         'id',
+        'name',
     ];
 
     /**
      * Get the fields displayed by the resource.
+     *
+     * @param NovaRequest $request
+     * @return array
      */
-    public function fields(NovaRequest $request): array
+    public function fields(NovaRequest $request)
     {
         return [
             ID::make()->sortable(),
-            Text::make(__('Name'), 'name')->sortable(),
-            Text::make(__('Owned By'), 'owned_by')->sortable(),
-            Textarea::make(__('Description'), 'description')->sortable(),
+
+            Text::make(__('Name'), 'name')
+                ->sortable()
+                ->rules('required', 'max:255')
+                ->creationRules('unique:assistants,name'),
+            BelongsTo::make(__('AI Model'), 'aiModel', AiModel::class)
+                ->sortable()
+                ->searchable()
+                ->rules('required'),
         ];
     }
 
     /**
      * Get the cards available for the request.
+     *
+     * @param NovaRequest $request
+     * @return array
      */
     public function cards(NovaRequest $request): array
     {
@@ -56,6 +69,9 @@ class AiModel extends Resource
 
     /**
      * Get the filters available for the resource.
+     *
+     * @param NovaRequest $request
+     * @return array
      */
     public function filters(NovaRequest $request): array
     {
@@ -64,6 +80,9 @@ class AiModel extends Resource
 
     /**
      * Get the lenses available for the resource.
+     *
+     * @param NovaRequest $request
+     * @return array
      */
     public function lenses(NovaRequest $request): array
     {
@@ -72,11 +91,12 @@ class AiModel extends Resource
 
     /**
      * Get the actions available for the resource.
+     *
+     * @param NovaRequest $request
+     * @return array
      */
     public function actions(NovaRequest $request): array
     {
-        return [
-            SyncModels::make()->standalone(),
-        ];
+        return [];
     }
 }

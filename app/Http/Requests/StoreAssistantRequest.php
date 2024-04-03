@@ -23,6 +23,8 @@ class StoreAssistantRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
+            'instructions' => 'required|string',
+            'ai_model_id' => 'required|exists:ai_models,id',
         ];
     }
 }

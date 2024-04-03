@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\AiModel;
 use App\Models\Assistant;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,6 +20,8 @@ class AssistantFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
+            'ai_model_id' => AiModel::factory()->create(),
+            'instructions' => $this->faker->text,
         ];
     }
 }

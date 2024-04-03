@@ -33,9 +33,9 @@ test('can retrieve over api', function () {
 test('can be created over api', function () {
     Sanctum::actingAs(
         User::factory()->create());
-    $this->post('/api/assistants', ['name' => 'Test Assistant'])
-         ->assertStatus(201)
-         ->assertJsonFragment(['name' => 'Test Assistant']);
+   $response =  $this->post('/api/assistants', ['name' => 'Test Assistant', 'instructions' => 'Test Instructions', 'ai_model_id' => \App\Models\AiModel::factory()->create()->id]);
+   $response->assertStatus(201)
+         ->assertJsonFragment(['name' => 'Test Assistant'])->assertJsonFragment(['instructions' => 'Test Instructions']);
 });
 
 test('can by soft deleted over api', function () {
@@ -56,5 +56,15 @@ test('can be updated over api', function () {
          ->assertJsonFragment(['name' => 'Updated Assistant']);
 
 });
+
+test('can be viewed in nova', function () {
+    $this->actingAs(
+        User::factory()->create());
+    $model = Assistant::factory()->create();
+    $response = $this->get('/nova/resources/assistants/' . $model->id);
+    $response->assertStatus(200);
+});
+
+
 
 
