@@ -51,7 +51,7 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Publish Nova
       run: php artisan nova:publish
-    - name: Migrate Database
+    - name: Migrate Database cuz yeah
       run: php artisan migrate
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       run: php artisan test --parallel
