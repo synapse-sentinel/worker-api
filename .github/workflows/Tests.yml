@@ -35,7 +35,7 @@ jobs:
         echo "DB_HOST=127.0.0.1" >> .env
         echo "DB_USERNAME=root" >> .env
         echo "DB_PASSWORD=password" >> .env
-        echo "OPEN_AI_KEY=${{ secrets.OPEN_AI_API_KEY }}" >> .env
+        echo "OPENAI_API_KEY=${{ secrets.OPEN_AI_API_KEY }}" >> .env
         php -r "file_exists('.env.testing') || copy('.env', '.env.testing');"
 
     - name: Install Dependencies
