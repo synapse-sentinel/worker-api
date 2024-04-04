@@ -3,18 +3,14 @@
 namespace App\Jobs;
 
 use App\Models\AiModel;
-use Illuminate\Bus\Queueable;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use OpenAI\Laravel\Facades\OpenAI;
 
 class SyncOpenAIModels
 {
     use Dispatchable;
-
     use SerializesModels;
-
 
     /**
      * Execute the job.
