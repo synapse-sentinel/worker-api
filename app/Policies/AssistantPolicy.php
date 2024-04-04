@@ -36,7 +36,7 @@ class AssistantPolicy
      */
     public function update(User $user, Assistant $assistant)
     {
-        //
+        return true;
     }
 
     /**

@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('assistants', function (Blueprint $table) {
             $table->id();
             $table->string('name', 256);
+            $table->string('avatar',
+                256)->unique()->nullable();
             $table->string('description', 512)->nullable();
             $table->foreignId('ai_model_id')->constrained();
             $table->text('instructions')->nullable();

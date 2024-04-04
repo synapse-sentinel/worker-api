@@ -22,7 +22,7 @@ class Assistant extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['name', 'instructions', 'ai_model_id', 'provider_value'];
+    protected $fillable = ['name', 'avatar', 'instructions', 'ai_model_id', 'provider_value'];
 
     /**
      * Get the aiModel that belongs to the Assistant

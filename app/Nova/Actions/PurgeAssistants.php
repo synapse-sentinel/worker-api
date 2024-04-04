@@ -21,7 +21,9 @@ class PurgeAssistants extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        $models->each->delete();
+        $models->each(function ($model) {
+            $model->delete();
+        });
 
         $orphanedAssistants = OpenAI::assistants()->list();
 
