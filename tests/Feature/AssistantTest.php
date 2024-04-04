@@ -74,3 +74,7 @@ test('can be viewed in nova', function () {
     $response = $this->get('/nova/resources/assistants/'.$model->id);
     $response->assertStatus(200);
 });
+
+afterEach(function () {
+    Assistant::query()->get()->each->delete();
+});

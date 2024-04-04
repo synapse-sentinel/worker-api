@@ -14,7 +14,7 @@ class AssistantObserver
     {
         $response = OpenAI::assistants()->create([
             'name' => $assistant->name,
-            'description' => $assistant->instructions,
+            'instructions' => $assistant->instructions,
             'model' => $assistant->aiModel->name,
         ]);
 
@@ -28,15 +28,16 @@ class AssistantObserver
      */
     public function updated(Assistant $assistant): void
     {
-        //
+
     }
 
     /**
      * Handle the Assistant "deleted" event.
      */
-    public function deleted(Assistant $assistant): void
+    public function deleting(Assistant $assistant): void
     {
-        //
+
+        OpenAI::assistants()->delete($assistant->provider_value);
     }
 
     /**

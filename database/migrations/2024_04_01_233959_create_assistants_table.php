@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('assistants', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name', 256);
+            $table->string('description',512)->nullable();
             $table->foreignId('ai_model_id')->constrained();
-            $table->text('instructions');
+            $table->text('instructions')->nullable();
             $table->string('provider')->default('openai');
             $table->string('provider_value')->nullable();
             $table->timestamps();

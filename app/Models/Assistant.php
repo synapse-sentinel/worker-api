@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @method static create(mixed $validated)
+ * @property mixed $name
  */
 class Assistant extends Model
 {

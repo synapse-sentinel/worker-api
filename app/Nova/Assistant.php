@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Actions\PurgeAssistants;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Date;
@@ -92,6 +93,8 @@ class Assistant extends Resource
      */
     public function actions(NovaRequest $request): array
     {
-        return [];
+        return [
+            PurgeAssistants::make()->standalone(),
+        ];
     }
 }
