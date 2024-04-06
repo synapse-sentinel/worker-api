@@ -42,9 +42,9 @@ class AssistantPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Assistant $assistant)
+    public function delete(User $user, Assistant $assistant): true
     {
-        //
+        return true;
     }
 
     /**

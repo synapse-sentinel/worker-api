@@ -3,9 +3,8 @@
 namespace App\Observers;
 
 use App\Models\Assistant;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 use OpenAI\Laravel\Facades\OpenAI;
+use OpenAI\Responses\Assistants\AssistantResponse;
 
 class AssistantObserver
 {
@@ -14,52 +13,8 @@ class AssistantObserver
      */
     public function created(Assistant $assistant): void
     {
-        $response = OpenAI::assistants()->create([
-            'name' => $assistant->name,
-            'instructions' => $assistant->instructions,
-            'model' => $assistant->aiModel->name,
-        ]);
+        $response = $this->createOpenAiAssistant($assistant);
 
-        $assistant->update([
-            'provider_value' => $response['id'],
-        ]);
-
-        if ($assistant->avatar === null) {
-            // generate a prompt to create a cool avatar use the assistant's data to generate a prompt and all other data too
-            $prompt = "Create a prompt for dall-e-3 for a  cool avatar for the assistant named {$assistant->name} with the following description: {$assistant->instructions}. Please make sure the avatar is unique and cool and photo-realistic. Please do not include any text in the image. The image should be a square image with a resolution of 512x512 pixels.";
-
-            $promptResponse = OpenAI::chat()->create([
-                'messages' => [
-                    ['role' => 'user', 'content' => $prompt],
-                ], 'model' => 'gpt-4',
-            ]);
-
-            $prompt = $promptResponse->choices[0]->message->content;
-
-            $response = OpenAI::images()->create(
-                [
-                    'prompt' => $prompt,
-                    'model' => 'dall-e-3',
-                ]);
-
-            // Download the image
-            $imageContent = file_get_contents($response->data[0]->url);
-
-            $filename = Str::random(10).'.png';
-
-            // Save the image to the 'public' disk, in the 'avatars' directory
-            $stored = Storage::disk('public')->put('avatars/'.$filename, $imageContent);
-
-            if ($stored) {
-                // Construct the path of the saved image
-                $path = 'avatars/'.$filename;
-
-                // Update the 'avatar' field with the path of the saved image
-                $assistant->update([
-                    'avatar' => $path,
-                ]);
-            }
-        }
     }
 
     /**
@@ -93,5 +48,20 @@ class AssistantObserver
     public function forceDeleted(Assistant $assistant): void
     {
         //
+    }
+
+    public function createOpenAiAssistant(Assistant $assistant): AssistantResponse
+    {
+        $response = OpenAI::assistants()->create([
+            'name' => $assistant->name,
+            'instructions' => $assistant->instructions,
+            'model' => $assistant->aiModel->name,
+        ]);
+
+        $assistant->update([
+            'provider_value' => $response['id'],
+        ]);
+
+        return $response;
     }
 }

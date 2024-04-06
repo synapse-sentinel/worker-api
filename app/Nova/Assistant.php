@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Actions\GenerateAvatar;
 use App\Nova\Actions\PurgeAssistants;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
@@ -19,14 +20,14 @@ class Assistant extends Resource
      *
      * @var class-string<\App\Models\Assistant>
      */
-    public static $model = \App\Models\Assistant::class;
+    public static string $model = \App\Models\Assistant::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -108,6 +109,7 @@ class Assistant extends Resource
     public function actions(NovaRequest $request): array
     {
         return [
+            GenerateAvatar::make()->onlyOnDetail(),
             PurgeAssistants::make()->standalone(),
         ];
     }
