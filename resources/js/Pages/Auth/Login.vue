@@ -7,11 +7,13 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
+import LoginLink from '@/../../vendor/spatie/laravel-login-link/resources/js/login-link.vue';
 
 defineProps({
     canResetPassword: Boolean,
     status: String,
 });
+
 
 const form = useForm({
     email: '',
@@ -40,6 +42,7 @@ const submit = () => {
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600 dark:text-green-400">
             {{ status }}
         </div>
+
 
         <form @submit.prevent="submit">
             <div>
@@ -73,6 +76,7 @@ const submit = () => {
                 <label class="flex items-center">
                     <Checkbox v-model:checked="form.remember" name="remember" />
                     <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">Remember me</span>
+
                 </label>
             </div>
 
@@ -81,10 +85,13 @@ const submit = () => {
                     Forgot your password?
                 </Link>
 
+                <LoginLink v-if="$page.props.environment === 'local'" label="Login as user@example.com" class="pb-3 text-red-500" :redirect-url="route('dashboard')" />
                 <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Log in
                 </PrimaryButton>
             </div>
+
         </form>
+
     </AuthenticationCard>
 </template>

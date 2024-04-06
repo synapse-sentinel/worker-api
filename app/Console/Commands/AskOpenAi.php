@@ -44,8 +44,6 @@ HTML
         //list all models /
         $models = OpenAI::Models()->list();
 
-        dd($models);
-
         $result = spin(
             fn () => OpenAI::chat()->create([
                 'model' => 'gpt-3.5-turbo',
@@ -61,6 +59,6 @@ HTML
 
     protected function formatResponse(string $content): void
     {
-        dd($content);
+        $this->info($content);
     }
 }

@@ -5,7 +5,7 @@
 use App\Models\User;
 
 test('verify nova directory exists', function () {
-    $this->assertTrue(is_dir(base_path('App/Nova')));
+    $this->assertTrue(is_dir(base_path('app/Nova')));
 });
 
 // test that nova login page is accessible
