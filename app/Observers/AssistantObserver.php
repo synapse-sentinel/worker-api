@@ -22,7 +22,11 @@ class AssistantObserver
      */
     public function updated(Assistant $assistant): void
     {
-
+        OpenAI::assistants()->modify($assistant->provider_value, [
+            'name' => $assistant->name,
+            'instructions' => $assistant->instructions,
+            'model' => $assistant->aiModel->name,
+        ]);
     }
 
     /**

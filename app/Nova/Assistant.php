@@ -109,8 +109,8 @@ class Assistant extends Resource
     public function actions(NovaRequest $request): array
     {
         return [
-            GenerateAvatar::make()->onlyOnDetail(),
-            PurgeAssistants::make()->standalone(),
+            new GenerateAvatar(),
+            new PurgeAssistants(),
         ];
     }
 }
