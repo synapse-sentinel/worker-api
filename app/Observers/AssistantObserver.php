@@ -26,7 +26,7 @@ class AssistantObserver
 
         if ($assistant->avatar === null) {
             // generate a prompt to create a cool avatar use the assistant's data to generate a prompt and all other data too
-            $prompt = "Create a prompt for dall-e-3 for a  cool avatar for the assistant named {$assistant->name} with the following description: {$assistant->instructions}. Please make sure the avatar is unique and cool and photo-realistic.";
+            $prompt = "Create a prompt for dall-e-3 for a  cool avatar for the assistant named {$assistant->name} with the following description: {$assistant->instructions}. Please make sure the avatar is unique and cool and photo-realistic. Please do not include any text in the image. The image should be a square image with a resolution of 512x512 pixels.";
 
             $promptResponse = OpenAI::chat()->create([
                 'messages' => [

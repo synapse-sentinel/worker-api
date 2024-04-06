@@ -59,6 +59,6 @@ HTML
 
     protected function formatResponse(string $content): void
     {
-        dd($content);
+        $this->info($content);
     }
 }
