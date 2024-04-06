@@ -3,6 +3,7 @@
 use App\Models\Assistant;
 use App\Models\User;
 use Laravel\Sanctum\Sanctum;
+use OpenAI\Laravel\Facades\OpenAI;
 
 test('can be created with factory', function () {
     $model = Assistant::factory()->create();
@@ -65,6 +66,19 @@ test('can be updated over api', function () {
         ->assertStatus(200)
         ->assertJsonFragment(['name' => 'Updated Assistant']);
 
+});
+
+test('updating an assistnat model updates in openai', function () {
+    Sanctum::actingAs(User::factory()->create());
+
+    $assistant = Assistant::factory()->create();
+
+    $assistant->update(['name' => 'Updated Assistant']);
+
+    $this->assertEquals('Updated Assistant', $assistant->refresh()->name);
+
+    $openaiAssistant = OpenAI::assistants()->retrieve($assistant->provider_value);
+    $this->assertEquals('Updated Assistant', $openaiAssistant['name']);
 });
 
 test('can be viewed in nova', function () {
