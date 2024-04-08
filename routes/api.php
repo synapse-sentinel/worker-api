@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AssistantController;
+use App\Http\Controllers\ThreadController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -8,5 +10,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         return $request->user();
     });
 
-    Route::resource('/assistants', \App\Http\Controllers\AssistantController::class);
+    Route::apiResource('assistants', AssistantController::class);
+    Route::apiResource('threads', ThreadController::class);
 });
