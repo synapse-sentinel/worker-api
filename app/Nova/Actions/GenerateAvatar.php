@@ -21,11 +21,11 @@ class GenerateAvatar extends Action
     /**
      * Perform the action on the given models.
      */
-    public function handle(ActionFields $fields, Collection $models): mixed
+    public function handle(ActionFields $fields, Collection $models): void
     {
         $models->each(function ($model) use ($fields) {
 
-            $image = $this->retrieveImage($fields->prompt);
+            $image = $this->retrieveImage($fields->get('prompt'));
             $this->storeImage($image, $model);
 
             return Action::message('The avatar has been generated and stored.');
