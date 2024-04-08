@@ -31,7 +31,7 @@ class ThreadController extends Controller
      */
     public function store(StoreThreadRequest $request): ThreadResource
     {
-        return new ThreadResource(Thread::create($request->validated()), 201);
+        return new ThreadResource(Thread::create($request->validated()));
     }
 
     /**
