@@ -1,0 +1,14 @@
+models:
+  Message:
+    Content: string
+    Relationship:
+      BelongsTo: Thread
+
+Controller:
+  MessageController:
+    index:
+      query: all
+      resource: Paginate:Message
+    show:
+      resource: Message
+
