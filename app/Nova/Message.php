@@ -3,20 +3,19 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Repeater;
-use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Thread extends Resource
+class Message extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Thread>
+     * @var class-string<\App\Models\Message>
      */
-    public static $model = \App\Models\Thread::class;
+    public static $model = \App\Models\Message::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -31,24 +30,18 @@ class Thread extends Resource
      * @var array
      */
     public static $search = [
-        'name',
+        'id',
     ];
 
     /**
      * Get the fields displayed by the resource.
-     *
-     * @return array
      */
-    public function fields(NovaRequest $request)
+    public function fields(NovaRequest $request): array
     {
         return [
             ID::make()->sortable(),
-            Text::make('Name')->sortable()->rules('required'),
-            Textarea::make('Description')->sortable()->rules('required'),
-            Repeater::make('Messages')->repeatables([
-                new \App\Nova\Repeater\Message,
-            ])->asHasMany(),
-
+            Textarea::make('Content')->required()->rules('required'),
+            BelongsTo::make('User')->searchable()->sortable(),
         ];
     }
 

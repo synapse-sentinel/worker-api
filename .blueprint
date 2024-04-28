@@ -1,0 +1,9 @@
+models:
+    AiModel: { name: string, description: 'string nullable', owned_by: string }
+    Assistant: { name: 'string:256', avatar: 'string:256 nullable', description: 'string:512 nullable', ai_model_id: 'biginteger unsigned', instructions: 'text nullable', provider: 'string default:openai', provider_value: 'string nullable' }
+    Membership: { team_id: 'biginteger unsigned', user_id: 'biginteger unsigned', role: 'string nullable' }
+    Person: { first_name: string, last_name: string, full_name: 'string nullable' }
+    Team: { user_id: 'biginteger unsigned', name: string, personal_team: boolean }
+    TeamInvitation: { team_id: 'biginteger unsigned', email: string, role: 'string nullable' }
+    Thread: { name: string, description: text }
+    User: { name: string, email: string, email_verified_at: 'timestamp nullable', password: string, two_factor_secret: 'text nullable', two_factor_recovery_codes: 'text nullable', two_factor_confirmed_at: 'timestamp nullable', remember_token: 'string:100 nullable', current_team_id: 'biginteger unsigned nullable', profile_photo_path: 'string:2048 nullable' }
