@@ -5,7 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Message extends Resource
@@ -15,7 +15,7 @@ class Message extends Resource
      *
      * @var class-string<\App\Models\Message>
      */
-    public static $model = \App\Models\Message::class;
+    public static string $model = \App\Models\Message::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -40,8 +40,10 @@ class Message extends Resource
     {
         return [
             ID::make()->sortable(),
-            Textarea::make('Content')->required()->rules('required'),
-            BelongsTo::make('User')->searchable()->sortable(),
+            Text::make('Content')->required()->rules('required'),
+            BelongsTo::make('User')->searchable()->sortable()->default(function ($request) {
+                return $request->user()->id;
+            }),
         ];
     }
 

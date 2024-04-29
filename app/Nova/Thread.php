@@ -3,8 +3,8 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Repeater;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -45,9 +45,7 @@ class Thread extends Resource
             ID::make()->sortable(),
             Text::make('Name')->sortable()->rules('required'),
             Textarea::make('Description')->sortable()->rules('required'),
-            Repeater::make('Messages')->repeatables([
-                new \App\Nova\Repeater\Message,
-            ])->asHasMany(),
+            HasMany::make('Messages'),
 
         ];
     }
