@@ -6,24 +6,25 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Message extends Model
+class MessageRecommendation extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'content',
-        'user_id',
+        'message_id',
         'assistant_id',
-        'thread_id',
+        'points',
+        'reason',
+
     ];
 
-    public function user(): BelongsTo
+    public function message(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Message::class);
     }
 
-    public function thread(): BelongsTo
+    public function assistant(): BelongsTo
     {
-        return $this->belongsTo(Thread::class);
+        return $this->belongsTo(Assistant::class);
     }
 }
