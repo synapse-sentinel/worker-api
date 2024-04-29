@@ -20,4 +20,12 @@ class Thread extends Model
         'name',
         'description',
     ];
+
+    /**
+     * Get the messages for the thread.
+     */
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }
