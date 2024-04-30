@@ -7,6 +7,7 @@ use App\Nova\Actions\PurgeAssistants;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
@@ -64,6 +65,8 @@ class Assistant extends Resource
             Trix::make(__('Instructions'), 'instructions')
                 ->sortable()
                 ->rules('required'),
+
+            HasMany::make(__('Message Recommendations'), 'messageRecommendations', MessageRecommendation::class),
 
             BelongsTo::make(__('AI Model'), 'aiModel', AiModel::class)
                 ->sortable()

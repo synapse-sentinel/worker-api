@@ -28,6 +28,11 @@ class Message extends Model
         return $this->belongsTo(Thread::class);
     }
 
+    public function assistant(): BelongsTo
+    {
+        return $this->belongsTo(Assistant::class);
+    }
+
     public function messageRecommendations(): HasMany
     {
         return $this->hasMany(MessageRecommendation::class);

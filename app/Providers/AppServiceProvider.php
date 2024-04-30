@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Assistant::observe(AssistantObserver::class);
         User::observe(UserObserver::class);
-        Message::observe(MessageObserver::class);
+        // very slow processing and probably will lead to race conditions
+        // Message::observe(MessageObserver::class);
     }
 }

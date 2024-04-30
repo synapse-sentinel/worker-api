@@ -5,7 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use OpenAI\Laravel\Facades\OpenAI;
 
 /**
  * @method static create(mixed $validated)
@@ -30,5 +32,29 @@ class Assistant extends Model
     public function aiModel(): BelongsTo
     {
         return $this->belongsTo(AiModel::class);
+    }
+
+    public function messageRecommendations(): HasMany
+    {
+        return $this->hasMany(MessageRecommendation::class);
+    }
+
+    public function processMessage($message): \OpenAI\Responses\Threads\Runs\ThreadRunResponse
+    {
+        $thread = $message->thread;
+        $messages = $thread->messages->select('role', 'content')->toArray();
+        $threadRun = OpenAI::threads()->createAndRun(
+            [
+                'assistant_id' => $this->provider_value,
+                'thread' => [
+
+                    'messages' => $messages,
+                ],
+            ]);
+
+        $threadRun->toArray();
+        $thread = OpenAI::threads()->retrieve($threadRun->threadId);
+        dd($thread);
+
     }
 }

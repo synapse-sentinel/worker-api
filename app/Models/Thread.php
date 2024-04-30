@@ -24,7 +24,7 @@ class Thread extends Model
     /**
      * Get the messages for the thread.
      */
-    public function messages()
+    public function messages(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Message::class);
     }
