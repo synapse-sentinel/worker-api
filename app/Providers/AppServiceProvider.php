@@ -4,9 +4,11 @@ namespace App\Providers;
 
 use App\Models\Assistant;
 use App\Models\Message;
+use App\Models\Thread;
 use App\Models\User;
 use App\Observers\AssistantObserver;
 use App\Observers\MessageObserver;
+use App\Observers\ThreadObserver;
 use App\Observers\UserObserver;
 use Illuminate\Support\ServiceProvider;
 
@@ -27,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Assistant::observe(AssistantObserver::class);
         User::observe(UserObserver::class);
+        Thread::observe(ThreadObserver::class);
         // very slow processing and probably will lead to race conditions
         // Message::observe(MessageObserver::class);
     }

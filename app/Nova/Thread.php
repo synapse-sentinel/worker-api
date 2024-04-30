@@ -45,6 +45,7 @@ class Thread extends Resource
             ID::make()->sortable(),
             Text::make('Name')->sortable()->rules('required'),
             Textarea::make('Description')->sortable()->rules('required'),
+            Text::make('Provider Value')->sortable(),
             HasMany::make('Messages'),
         ];
     }

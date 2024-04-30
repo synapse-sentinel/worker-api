@@ -19,6 +19,7 @@ class Thread extends Model
     protected $fillable = [
         'name',
         'description',
+        'provider_value',
     ];
 
     /**
