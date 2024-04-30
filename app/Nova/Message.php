@@ -40,7 +40,7 @@ class Message extends Resource
     {
         return [
             ID::make()->sortable(),
-            BelongsTo::make('Thread')->searchable()->sortable(),
+            BelongsTo::make('Thread')->searchable()->sortable()->nullable(),
             Text::make('Content')->required()->rules('required'),
             BelongsTo::make('User')->searchable()->sortable()->default(function ($request) {
                 return $request->user()->id;
