@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Run;
 use Illuminate\Console\Command;
 
 class ProcessMessageRecommendations extends Command
@@ -28,6 +29,11 @@ class ProcessMessageRecommendations extends Command
         $messageRecommendations = \App\Models\MessageRecommendation::where('points', '>', 0)->get();
         $this->info('Processing '.$messageRecommendations->count().' message recommendations...');
         $messageRecommendations->each(function (\App\Models\MessageRecommendation $recommendation) {
+            if (! $recommendation->assistant) {
+                $this->error('Assistant not found for recommendation: '.$recommendation->id);
+
+                return;
+            }
             $this->line("\033[32mProcessing recommendation for message: ".$recommendation->message->content."\033[0m");
             $this->line("\033[34mAssistant: ".$recommendation->assistant->name."\033[0m");
             $this->line("\033[35mReason: ".$recommendation->reason."\033[0m");
@@ -37,8 +43,20 @@ class ProcessMessageRecommendations extends Command
             $assistant = $recommendation->assistant;
             $this->line("\033[32mAssistant: ".$assistant->name."\033[0m");
             $response = $assistant->processMessage($recommendation->message);
-            dd($response);
+            $run = $this->storeRun($recommendation, $response);
+            $this->info('Run stored with id: '.$run->id);
+            $recommendation->delete();
 
         });
+    }
+
+    private function storeRun($recommendation, $response)
+    {
+        return Run::create([
+            'provider_value' => $response['id'],
+            'status' => $response['status'],
+            'assistant_id' => $recommendation->assistant_id,
+            'thread_id' => $recommendation->message->thread_id,
+        ]);
     }
 }

@@ -26,7 +26,7 @@ class AssignMessages extends Command
      */
     public function handle(AssistantService $assistantService)
     {
-        $messageToAssign = \App\Models\Message::whereNull('assistant_id')->limit(12)->get();
+        $messageToAssign = \App\Models\Message::where('processed', false)->get();
         $this->info('Assigning '.$messageToAssign->count().' messages to threads...');
         $messageToAssign->each(function (\App\Models\Message $message) use ($assistantService) {
             $this->info('Assigning message: '.$message->content);
@@ -39,13 +39,17 @@ class AssignMessages extends Command
                     $message->messageRecommendations()->create([
                         'assistant_id' => $assistant['id'],
                         'reason' => $assistant['reason'],
-                        'points' => 0,
+                        'points' => $assistant['points'] ?? 4,
                     ]);
+
+                    $message->update(['processed' => true]);
                 });
 
             }
 
             if (is_array($response) && array_key_exists('suggested_assistants', $response) && $response['suggested_assistants']) {
+
+                dd($response['suggested_assistants']);
                 $this->info('Suggestions: '.implode(', ', $response['suggested_assistants']));
             }
         });

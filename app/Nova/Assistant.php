@@ -72,6 +72,8 @@ class Assistant extends Resource
                 ->sortable()
                 ->rules('required'),
 
+            BelongsTo::make(__('User'), 'user', User::class)->showCreateRelationButton(),
+
             Text::make(__('Provider Value'), 'provider_value')->readonly(),
 
             Text::make(__('Provider'), 'provider')->readonly(),

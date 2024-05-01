@@ -16,6 +16,7 @@ class Message extends Model
         'user_id',
         'assistant_id',
         'thread_id',
+        'processed',
     ];
 
     public function user(): BelongsTo

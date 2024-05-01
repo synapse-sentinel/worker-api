@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Message extends Resource
@@ -42,7 +42,7 @@ class Message extends Resource
         return [
             ID::make()->sortable(),
             BelongsTo::make('Thread')->searchable()->sortable()->nullable(),
-            Text::make('Content')->required()->rules('required'),
+            Markdown::make('Content')->required()->rules('required'),
             BelongsTo::make('User')->searchable()->sortable()->default(function ($request) {
                 return $request->user()->id;
             }),

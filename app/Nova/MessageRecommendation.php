@@ -5,6 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -44,6 +45,7 @@ class MessageRecommendation extends Resource
             ID::make()->sortable(),
             BelongsTo::make('Message')->searchable()->sortable()->nullable(),
             BelongsTo::make('Assistant')->searchable()->sortable()->nullable(),
+            Number::make('Points')->sortable()->nullable(),
             Text::make('Reason')->sortable()->nullable(),
         ];
     }

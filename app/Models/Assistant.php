@@ -39,6 +39,11 @@ class Assistant extends Model
         return $this->hasMany(MessageRecommendation::class);
     }
 
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function processMessage($message): \OpenAI\Responses\Threads\Runs\ThreadRunResponse
     {
         $thread = $message->thread;
@@ -52,9 +57,8 @@ class Assistant extends Model
                 ],
             ]);
 
-        $threadRun->toArray();
-        $thread = OpenAI::threads()->retrieve($threadRun->threadId);
-        dd($thread);
+        $message->thread->update(['provider_value' => $threadRun->threadId]);
 
+        return $threadRun;
     }
 }

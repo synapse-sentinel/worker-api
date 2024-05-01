@@ -30,7 +30,6 @@ class AppServiceProvider extends ServiceProvider
         Assistant::observe(AssistantObserver::class);
         User::observe(UserObserver::class);
         Thread::observe(ThreadObserver::class);
-        // very slow processing and probably will lead to race conditions
-        // Message::observe(MessageObserver::class);
+        Message::observe(MessageObserver::class);
     }
 }
