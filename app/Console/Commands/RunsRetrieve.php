@@ -39,6 +39,7 @@ class RunsRetrieve extends Command
             if (! $assistant->user) {
                 $assistant->user()->associate(User::factory()->state(['name' => $assistant->name])->create());
             }
+            dump($response->data[0]->content[0]->text->value);
             $run->thread->messages()->updateOrCreate(
                 [
                     'content' => $response->data[0]->content[0]->text->value,

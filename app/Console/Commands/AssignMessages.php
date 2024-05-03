@@ -49,7 +49,6 @@ class AssignMessages extends Command
 
             if (is_array($response) && array_key_exists('suggested_assistants', $response) && $response['suggested_assistants']) {
 
-                dd($response['suggested_assistants']);
                 $this->info('Suggestions: '.implode(', ', $response['suggested_assistants']));
             }
         });
