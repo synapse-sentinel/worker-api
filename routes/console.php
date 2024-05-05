@@ -1,8 +1,20 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Schedule;
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote')->hourly();
+Schedule::call(function () {
+    Artisan::call('ai-models:sync');
+})->daily();
+
+Schedule::call(function () {
+    Artisan::call('messages:assign');
+})->everyMinute();
+
+Schedule::call(function () {
+    Artisan::call('messages:process-recommendations');
+})->everyMinute();
+
+Schedule::call(function () {
+    Artisan::call('threads:retrieve');
+})->everyMinute();

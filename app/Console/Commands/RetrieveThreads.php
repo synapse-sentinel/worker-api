@@ -5,12 +5,15 @@ namespace App\Console\Commands;
 use App\Models\Assistant;
 use App\Models\Thread;
 use Illuminate\Console\Command;
+use Illuminate\Foundation\Testing\WithFaker;
 use OpenAI\Laravel\Facades\OpenAI;
 
 use function Laravel\Prompts\table;
 
 class RetrieveThreads extends Command
 {
+    use withFaker;
+
     /**
      * The name and signature of the console command.
      *
@@ -40,7 +43,6 @@ class RetrieveThreads extends Command
 
             $this->info(' incoming -'.count($response['data']).' messages for thread '.$thread->name);
             collect($response['data'])->each(function ($message) use ($thread) {
-
                 $possibleDupe = $thread->messages()->where('content', $message['content'][0]['text']['value'])->first();
                 if ($message['assistant_id'] == null) {
                     $this->info('skipping user messages');
@@ -64,6 +66,16 @@ class RetrieveThreads extends Command
 
     private function findAssistant($message)
     {
-        return Assistant::where('provider_value', $message['assistant_id'])->first()?->user_id ?? 1;
+        $assistant = Assistant::where('provider_value', $message['assistant_id'])->first();
+        $this->info('Assigning message to assistant: '.$assistant->name);
+        if ($assistant->user_id == null) {
+            $assistant->user()->create([
+                'name' => $assistant->name,
+                'email' => $assistant->name.'@synapse-sentinel.com',
+                'password' => bcrypt('password'),
+            ]);
+        }
+
+        return $assistant->user_id;
     }
 }
