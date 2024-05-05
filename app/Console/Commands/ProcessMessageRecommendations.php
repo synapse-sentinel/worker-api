@@ -2,8 +2,10 @@
 
 namespace App\Console\Commands;
 
+use App\Models\MessageRecommendation;
 use App\Models\Run;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 
 class ProcessMessageRecommendations extends Command
 {
@@ -26,9 +28,9 @@ class ProcessMessageRecommendations extends Command
      */
     public function handle()
     {
-        $messageRecommendations = \App\Models\MessageRecommendation::where('points', '>', 0)->get();
+        $messageRecommendations = MessageRecommendation::where('points', '>', 0)->get();
         $this->info('Processing '.$messageRecommendations->count().' message recommendations...');
-        $messageRecommendations->each(function (\App\Models\MessageRecommendation $recommendation) {
+        $messageRecommendations->each(function (MessageRecommendation $recommendation) {
             if (! $recommendation->assistant) {
                 $this->error('Assistant not found for recommendation: '.$recommendation->id);
 
@@ -46,6 +48,8 @@ class ProcessMessageRecommendations extends Command
             $run = $this->storeRun($recommendation, $response);
             $this->info('Run stored with id: '.$run->id);
             $recommendation->delete();
+
+            Artisan::call(RetrieveThreads::class);
 
         });
     }

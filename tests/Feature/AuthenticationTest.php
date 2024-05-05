@@ -17,7 +17,8 @@ test('users can authenticate using the login screen', function () {
     ]);
 
     $this->assertAuthenticated();
-    $response->assertRedirect(route('dashboard', absolute: false));
+    $response->assertRedirect(route('nova.pages.dashboard.custom',
+        'main'));
 });
 
 test('users cannot authenticate with invalid password', function () {

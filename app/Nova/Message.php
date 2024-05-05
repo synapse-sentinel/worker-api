@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Message extends Resource
@@ -23,7 +24,7 @@ class Message extends Resource
      *
      * @var string
      */
-    public static $title = 'content';
+    public static $title = 'abstract';
 
     /**
      * The columns that should be searched.
@@ -42,12 +43,13 @@ class Message extends Resource
         return [
             ID::make()->sortable(),
             BelongsTo::make('Thread')->searchable()->sortable()->nullable(),
+            Text::make('Abstract')->sortable()->rules('required', 'max:255')->onlyOnIndex(),
+            Text::make('Provider Value')->sortable()->rules('required', 'max:255')->onlyOnIndex(),
             Markdown::make('Content')->required()->rules('required'),
             BelongsTo::make('User')->searchable()->sortable()->default(function ($request) {
                 return $request->user()->id;
             }),
 
-            BelongsTo::make('Assistant')->searchable()->sortable()->nullable(),
             HasMany::make('MessageRecommendations'),
         ];
     }

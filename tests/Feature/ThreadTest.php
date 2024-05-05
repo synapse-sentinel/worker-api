@@ -17,7 +17,7 @@ test('nova resource can be viewed', function () {
     $user = User::factory()->create();
     $this->be($user);
     $thread = Thread::factory()->create();
-    $response = $this->get('/nova/resources/threads/'.$thread->id);
+    $response = $this->get(config('nova.path').'/resources/threads/'.$thread->id);
     $response->assertStatus(200);
 });
 

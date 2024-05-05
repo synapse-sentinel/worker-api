@@ -34,14 +34,26 @@ class Assistant extends Model
         return $this->belongsTo(AiModel::class);
     }
 
-    public function messageRecommendations(): HasMany
-    {
-        return $this->hasMany(MessageRecommendation::class);
-    }
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function messages(): \Illuminate\Database\Eloquent\Relations\HasManyThrough
+    {
+        return $this->hasManyThrough(
+            Message::class,
+            User::class,
+            'id', // Foreign key on the users table...
+            'user_id', // Foreign key on the messages table...
+            'user_id', // Local key on the assistants table...
+            'id' // Local key on the users table...
+        );
+    }
+
+    public function messageRecommendations(): HasMany
+    {
+        return $this->hasMany(MessageRecommendation::class);
     }
 
     public function processMessage($message): \OpenAI\Responses\Threads\Runs\ThreadRunResponse

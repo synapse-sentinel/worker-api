@@ -38,4 +38,9 @@ class Message extends Model
     {
         return $this->hasMany(MessageRecommendation::class);
     }
+
+    public function getAbstractAttribute(): string
+    {
+        return substr($this->content, 0, 50);
+    }
 }

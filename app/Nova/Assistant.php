@@ -8,11 +8,12 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\HasManyThrough;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use SynapseSentinel\AskAgent\AskAgent;
 
 class Assistant extends Resource
 {
@@ -50,21 +51,19 @@ class Assistant extends Resource
         return [
             ID::make()->sortable(),
 
-            Image::make(__('Avatar'), 'avatar')
-                ->disk('public')
-                ->path('avatars')
-                ->sortable()
-                ->creationRules('unique:assistants,avatar')
-                ->updateRules('unique:assistants,avatar,{{resourceId}}'),
-
             Text::make(__('Name'), 'name')
                 ->sortable()
                 ->rules('required', 'max:255')
                 ->creationRules('unique:assistants,name'),
 
-            Trix::make(__('Instructions'), 'instructions')
+            AskAgent::make(),
+
+            Markdown::make(__('Instructions'), 'instructions')
                 ->sortable()
+                ->alwaysShow()
                 ->rules('required'),
+
+            HasManyThrough::make(__('Messages'), 'messages', Message::class),
 
             HasMany::make(__('Message Recommendations'), 'messageRecommendations', MessageRecommendation::class),
 
@@ -74,7 +73,7 @@ class Assistant extends Resource
 
             BelongsTo::make(__('User'), 'user', User::class)->showCreateRelationButton(),
 
-            Text::make(__('Provider Value'), 'provider_value')->readonly(),
+            Text::make(__('Provider Value'), 'provider_value')->readonly()->onlyOnDetail(),
 
             Text::make(__('Provider'), 'provider')->readonly(),
 

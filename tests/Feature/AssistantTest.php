@@ -36,6 +36,6 @@ test('can be viewed in nova', function () {
     $this->actingAs(
         User::factory()->create());
     $model = Assistant::factory()->create();
-    $response = $this->get('/nova/resources/assistants/'.$model->id);
+    $response = $this->get(config('nova.path').'resources/assistants/'.$model->id);
     $response->assertStatus(200);
 });
