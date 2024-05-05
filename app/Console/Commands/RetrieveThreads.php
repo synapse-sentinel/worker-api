@@ -43,13 +43,13 @@ class RetrieveThreads extends Command
 
                 $possibleDupe = $thread->messages()->where('content', $message['content'][0]['text']['value'])->first();
                 if ($message['assistant_id'] == null) {
-                    info('skipping user messages');
+                    $this->info('skipping user messages');
 
                     return;
                 }
 
                 if ($possibleDupe) {
-                    info('.Message already exists skipping: ');
+                    $this->info('.Message already exists skipping: ');
 
                     return;
                 }
