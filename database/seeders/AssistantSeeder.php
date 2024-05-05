@@ -17,7 +17,7 @@ class AssistantSeeder extends Seeder
         Assistant::create([
             'name' => 'Lead Assistant',
             'instructions' => 'You are the lead assistant in the worker api laravel app',
-            'ai_model_id' => AiModel::where('name', 'gpt-4')->first()->id,
+            'ai_model_id' => AiModel::where('name', 'gpt-4')->firstOrFail()->id,
         ]);
     }
 }
