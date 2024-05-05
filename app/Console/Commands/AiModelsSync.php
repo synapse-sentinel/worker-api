@@ -20,7 +20,7 @@ class AiModelsSync extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Synchronize AI models with OpenAI and update the local database';
 
     /**
      * Execute the console command.
