@@ -38,7 +38,7 @@ class UpdateRuns extends Command
                 Log::info('Run response: '.json_encode($response));
                 $completedRuns = $response['status'] === 'completed';
                 if ($response['status'] === 'failed') {
-                    dd($run->messageRecommendation()->get());
+                    Log::info('Run failed: '.$run->id, $response->toArray();
                 }
                 $run->update([
                     'status' => $response['status'],
