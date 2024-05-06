@@ -36,17 +36,15 @@ class Thread extends Resource
 
     /**
      * Get the fields displayed by the resource.
-     *
-     * @return array
      */
-    public function fields(NovaRequest $request)
+    public function fields(NovaRequest $request): array
     {
         return [
             ID::make()->sortable(),
             Text::make('Name')->sortable()->rules('required'),
             Textarea::make('Description')->sortable()->rules('required'),
+            Text::make('Provider Value')->sortable(),
             HasMany::make('Messages'),
-
         ];
     }
 

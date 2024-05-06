@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Assistant;
+use App\Models\User;
 use OpenAI\Laravel\Facades\OpenAI;
 use OpenAI\Responses\Assistants\AssistantResponse;
 
@@ -14,6 +15,7 @@ class AssistantObserver
     public function created(Assistant $assistant): void
     {
         $response = $this->createOpenAiAssistant($assistant);
+        $this->createUserForAssistant($assistant, $response);
 
     }
 
@@ -46,14 +48,6 @@ class AssistantObserver
         //
     }
 
-    /**
-     * Handle the Assistant "force deleted" event.
-     */
-    public function forceDeleted(Assistant $assistant): void
-    {
-        //
-    }
-
     public function createOpenAiAssistant(Assistant $assistant): AssistantResponse
     {
         $response = OpenAI::assistants()->create([
@@ -67,5 +61,18 @@ class AssistantObserver
         ]);
 
         return $response;
+    }
+
+    private function createUserForAssistant(Assistant $assistant, AssistantResponse $response): void
+    {
+        $user = User::create([
+            'name' => $assistant->name,
+            'email' => $assistant->name.'@synapse-sentinel.com',
+            'password' => bcrypt(bin2hex(random_bytes(16))),
+        ]);
+
+        $assistant->update([
+            'user_id' => $user->id,
+        ]);
     }
 }

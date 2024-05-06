@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
 
 class AiModelSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class AiModelSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Artisan::call('ai-models:sync');
     }
 }

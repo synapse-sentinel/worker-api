@@ -4,7 +4,10 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -22,7 +25,7 @@ class Message extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'abstract';
 
     /**
      * The columns that should be searched.
@@ -39,12 +42,24 @@ class Message extends Resource
     public function fields(NovaRequest $request): array
     {
         return [
+
             ID::make()->sortable(),
-            BelongsTo::make('Thread')->searchable()->sortable(),
-            Text::make('Content')->required()->rules('required'),
+
+            BelongsTo::make('Thread')->searchable()->sortable()->nullable(),
+
+            Text::make('Abstract')->sortable()->rules('required', 'max:255')->onlyOnIndex(),
+
+            Text::make('Provider Value')->sortable()->rules('required', 'max:255')->exceptOnForms(),
+
+            Boolean::make('Processed')->sortable(),
+
+            Markdown::make('Content')->required()->rules('required'),
+
             BelongsTo::make('User')->searchable()->sortable()->default(function ($request) {
                 return $request->user()->id;
             }),
+
+            HasMany::make('MessageRecommendations'),
         ];
     }
 

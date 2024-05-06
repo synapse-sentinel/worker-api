@@ -2,14 +2,16 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
         "inertiajs/inertia-laravel": "^1.0",
         "jakub-onderka/php-console-highlighter": "^0.4.0",
         "laravel/framework": "^11.0",
-        "laravel/jetstream": "^5.0",
         "laravel/nova": "^4.0",
         "laravel/prompts": "^0.1.16",
         "laravel/sanctum": "^4.0",
@@ -21,7 +23,8 @@
         "scrivo/highlight.php": "^9.18",
         "silber/bouncer": "^1.0",
         "spatie/laravel-login-link": "^1.2",
-        "tightenco/ziggy": "^2.0"
+        "tightenco/ziggy": "^2.0",
+        "synapse-sentinel/ask-agent": "@dev"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -84,6 +87,10 @@
         "nova": {
             "type": "composer",
             "url": "https://nova.laravel.com"
+        },
+        "0": {
+            "type": "path",
+            "url": "./nova-components/AskAgent"
         }
     }
 }

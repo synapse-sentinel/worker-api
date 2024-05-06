@@ -15,7 +15,7 @@ test('nova resource can be viewed', function () {
     $user = User::factory()->create();
     $this->be($user);
     $model = AiModel::factory()->create();
-    $response = $this->get('/nova/resources/ai-models/'.$model->id);
+    $response = $this->get('/resources/ai-models/'.$model->id);
 
     $response->assertStatus(200);
 });

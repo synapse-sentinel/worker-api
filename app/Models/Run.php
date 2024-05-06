@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+class Run extends Model
+{
+    use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = ['provider_value', 'status', 'assistant_id', 'thread_id'];
+
+    public function thread(): BelongsTo
+    {
+        return $this->belongsTo(Thread::class);
+    }
+
+    public function assistant(): BelongsTo
+    {
+        return $this->belongsTo(Assistant::class);
+    }
+
+    public function messageRecommendation(): HasMany
+    {
+        return $this->hasMany(MessageRecommendation::class);
+    }
+}
