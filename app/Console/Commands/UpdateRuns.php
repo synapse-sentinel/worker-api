@@ -29,14 +29,15 @@ class UpdateRuns extends Command
     public function handle()
     {
         $this->info('Checking up on runs...');
+        $completedRuns = false;
         Run::where('status', 'queued')->get()->each(function (Run $run) {
             $this->info('Checking run: '.$run->id);
             try {
                 $response = OpenAI::threads()->runs()->retrieve(threadId: $run->thread->provider_value, runId: $run->provider_value);
+                $completedRuns = $response['status'] === 'completed';
                 $run->update([
                     'status' => $response['status'],
                 ]);
-                Artisan::call(RetrieveThreads::class);
             } catch (\Exception $e) {
                 $this->error('Error updating run: '.$run->id);
                 if (str_contains($e->getMessage(), 'No run found')) {
@@ -47,5 +48,9 @@ class UpdateRuns extends Command
                 }
             }
         });
+
+        if ($completedRuns) {
+            Artisan::call('threads:retrieve');
+        }
     }
 }

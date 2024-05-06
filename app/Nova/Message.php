@@ -49,7 +49,7 @@ class Message extends Resource
 
             Text::make('Abstract')->sortable()->rules('required', 'max:255')->onlyOnIndex(),
 
-            Text::make('Provider Value')->sortable()->rules('required', 'max:255')->onlyOnIndex(),
+            Text::make('Provider Value')->sortable()->rules('required', 'max:255')->exceptOnForms(),
 
             Boolean::make('Processed')->sortable(),
 

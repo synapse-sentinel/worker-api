@@ -28,7 +28,7 @@ class ProcessMessageRecommendations extends Command
      */
     public function handle()
     {
-        $messageRecommendations = MessageRecommendation::where('points', '>', 0)->get();
+        $messageRecommendations = MessageRecommendation::whereNull('run_id')->get();
         $this->info('Processing '.$messageRecommendations->count().' message recommendations...');
         $messageRecommendations->each(function (MessageRecommendation $recommendation) {
             if (! $recommendation->assistant) {
