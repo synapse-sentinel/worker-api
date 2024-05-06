@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Run;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Log;
 use OpenAI\Laravel\Facades\OpenAI;
 
 class UpdateRuns extends Command
@@ -30,11 +31,15 @@ class UpdateRuns extends Command
     {
         $this->info('Checking up on runs...');
         $completedRuns = false;
-        Run::where('status', 'queued')->get()->each(function (Run $run) {
+        Run::whereIn('status', ['queued', 'in_progress'])->get()->each(function (Run $run) use (&$completedRuns) {
             $this->info('Checking run: '.$run->id);
             try {
                 $response = OpenAI::threads()->runs()->retrieve(threadId: $run->thread->provider_value, runId: $run->provider_value);
+                Log::info('Run response: '.json_encode($response));
                 $completedRuns = $response['status'] === 'completed';
+                if ($response['status'] === 'failed') {
+                    dd($run->messageRecommendation()->get());
+                }
                 $run->update([
                     'status' => $response['status'],
                 ]);

@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Message;
+use Illuminate\Support\Facades\Artisan;
 use OpenAI\Laravel\Facades\OpenAI;
 
 class MessageObserver
@@ -12,9 +13,14 @@ class MessageObserver
     /**
      * Handle the "created" event for the Message model.
      */
-    public function created(Message $message): void
+    public function creating(Message $message): void
     {
         $this->handleOpenAiIntegration($message);
+    }
+
+    public function created(Message $message): void
+    {
+        Artisan::call('messages:assign');
     }
 
     /**
@@ -28,18 +34,5 @@ class MessageObserver
         $openAiResponse = OpenAI::threads()->messages()->create($thread->provider_value, $openAiInfo);
         $message->provider_value = $openAiResponse->id;
 
-        $message->save();
-    }
-
-    /**
-     * Assign recommendations based on the assistant's input.
-     */
-    private function assignRecommendations(Message $message): void
-    {
-        $message->messageRecommendations()->create([
-            'assistant_id' => $message->assistant->id,
-            'reason' => 'Assigned by User',
-            'points' => self::ASSIGNED_POINTS, // Define this constant at the top of the class
-        ]);
     }
 }
