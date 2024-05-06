@@ -27,4 +27,9 @@ class MessageRecommendation extends Model
     {
         return $this->belongsTo(Assistant::class);
     }
+
+    public function run(): BelongsTo
+    {
+        return $this->belongsTo(Run::class);
+    }
 }

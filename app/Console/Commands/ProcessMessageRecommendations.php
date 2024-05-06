@@ -47,7 +47,8 @@ class ProcessMessageRecommendations extends Command
             $response = $assistant->processMessage($recommendation->message);
             $run = $this->storeRun($recommendation, $response);
             $this->info('Run stored with id: '.$run->id);
-            $recommendation->delete();
+            $recommendation->run()->associate($run);
+            $recommendation->save();
 
             Artisan::call(RetrieveThreads::class);
 

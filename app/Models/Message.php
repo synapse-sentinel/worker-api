@@ -17,6 +17,8 @@ class Message extends Model
         'assistant_id',
         'thread_id',
         'processed',
+        'role',
+        'provider_value',
     ];
 
     public function user(): BelongsTo

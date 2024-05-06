@@ -5,15 +5,12 @@ namespace App\Console\Commands;
 use App\Models\Assistant;
 use App\Models\Thread;
 use Illuminate\Console\Command;
-use Illuminate\Foundation\Testing\WithFaker;
 use OpenAI\Laravel\Facades\OpenAI;
 
 use function Laravel\Prompts\table;
 
 class RetrieveThreads extends Command
 {
-    use withFaker;
-
     /**
      * The name and signature of the console command.
      *
@@ -26,7 +23,7 @@ class RetrieveThreads extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'retrieve threads from openai and store them in the application';
 
     /**
      * Execute the console command.
@@ -43,6 +40,11 @@ class RetrieveThreads extends Command
 
             $this->info(' incoming -'.count($response['data']).' messages for thread '.$thread->name);
             collect($response['data'])->each(function ($message) use ($thread) {
+                if (empty($message['content'][0]['text']['value'])) {
+                    $this->info('skipping empty message');
+
+                    return;
+                }
                 $possibleDupe = $thread->messages()->where('content', $message['content'][0]['text']['value'])->first();
                 if ($message['assistant_id'] == null) {
                     $this->info('skipping user messages');
@@ -55,10 +57,13 @@ class RetrieveThreads extends Command
 
                     return;
                 }
-                $existingMessage = $thread->messages()->updateOrCreate([
+                $this->info('inserting message');
+                $existingMessage = $thread->messages()->updateOrCreate($updateArray = [
                     'content' => $message['content'][0]['text']['value'],
                     'user_id' => $this->findAssistant($message),
                     'role' => 'assistant',
+                    'processed' => 1,
+                    'provider_value' => $message['id'],
                 ]);
             });
         });

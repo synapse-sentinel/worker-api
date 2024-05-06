@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Assistant;
+use App\Models\Thread;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('provider_value')->nullable();
             $table->string('status')->default('running');
-            $table->foreignIdFor(Assistant::class);
-            $table->foreignIdFor(\App\Models\Thread::class);
+            $table->foreignIdFor(Assistant::class)->constrained();
+            $table->foreignIdFor(Thread::class)->constrained();
             $table->timestamps();
         });
     }

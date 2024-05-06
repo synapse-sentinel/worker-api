@@ -5,7 +5,6 @@ namespace App\Console\Commands;
 use App\Models\Message;
 use App\Services\AssistantService;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Artisan;
 
 use function Laravel\Prompts\table;
 
@@ -39,6 +38,7 @@ class AssignMessages extends Command
                 [$message->content, $message->user->name, $message->thread->name],
             ]);
             $response = $assistantService->processMessage($message);
+            $this->info('Response: '.json_encode($response));
             if (is_array($response) && array_key_exists('potential_assignees', $response) && $response['potential_assignees']) {
 
                 collect($response['potential_assignees'])->each(function ($assistant) use ($message) {
@@ -70,8 +70,5 @@ class AssignMessages extends Command
                 $this->info('Suggestions: '.implode(', ', $response['suggested_assistants']));
             }
         });
-
-        Artisan::call(ProcessMessageRecommendations::class);
-
     }
 }
