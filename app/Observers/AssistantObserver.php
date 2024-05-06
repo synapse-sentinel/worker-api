@@ -68,7 +68,7 @@ class AssistantObserver
         $user = User::create([
             'name' => $assistant->name,
             'email' => $assistant->name.'@synapse-sentinel.com',
-            'password' => bcrypt('password'),
+            'password' => bcrypt(bin2hex(random_bytes(16))),
         ]);
 
         $assistant->update([
