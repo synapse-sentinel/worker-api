@@ -71,8 +71,7 @@ class AssistantObserver
             'password' => bcrypt(bin2hex(random_bytes(16))),
         ]);
 
-        $assistant->update([
-            'user_id' => $user->id,
-        ]);
+        $assistant->user()->associate($user);
+        $assistant->save();
     }
 }
