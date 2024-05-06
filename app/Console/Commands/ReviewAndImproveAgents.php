@@ -29,8 +29,10 @@ class ReviewAndImproveAgents extends Command
     {
         $ceo = Assistant::first();
         $thread = Thread::updateOrCreate(['name' => 'Performance Review', 'description' => 'Review and Improve Agents']);
-        Assistant::all()->each(function (Assistant $assistant) {
+        Assistant::all()->each(function (Assistant $assistant) use ($thread) {
             $content = view('prompts.assistant-review', ['assistantName' => $assistant->name, 'assistantDescription' => $assistant->description, 'assistantMessages' => $assistant->user->messages()->pluck('content')])->render();
+            $thread->messages()->create(['content' => $content, 'assistant_id' => $assistant->id, 'user_id' => 1]);
+
         });
     }
 }
