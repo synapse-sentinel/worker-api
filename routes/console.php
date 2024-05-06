@@ -13,8 +13,12 @@ Schedule::call(function () {
 
 Schedule::call(function () {
     Artisan::call('messages:process-recommendations');
-})->everyFifteenMinutes();
+})->everyMinute();
 
 Schedule::call(function () {
     Artisan::call('threads:retrieve');
+})->everyMinute();
+
+Schedule::call(function () {
+    Artisan::call('runs:update');
 })->everyMinute();
