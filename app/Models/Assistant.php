@@ -98,7 +98,7 @@ class Assistant extends Model
                 [
                     'role' => 'assistant', 'content' => 'please provide yourself updated instructions from this reflection:'
                     .$instructions.
-                    'referring your previous instructions.'.$this->instructions.' please provide updated instructions. in `512` character or less',
+                    'referring your previous instructions.'.$this->instructions.' please provide updated instructions.',
                 ],
             ],
         ]);
