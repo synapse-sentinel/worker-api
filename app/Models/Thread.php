@@ -29,4 +29,18 @@ class Thread extends Model
     {
         return $this->hasMany(Message::class);
     }
+
+    public function summarize(): void
+    {
+        $this->update([
+            'description' => json_encode([
+                'messages' => $this->messages->map(function (Message $message) {
+                    return [
+                        'user' => $message->user->name,
+                        'content' => $message->content,
+                    ];
+                }),
+            ]),
+        ]);
+    }
 }
