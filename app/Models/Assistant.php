@@ -73,4 +73,36 @@ class Assistant extends Model
 
         return $threadRun;
     }
+
+    public function reflect(): void
+    {
+        $prompt = view('prompts.agent-reflect', [
+            'assistant' => $this,
+            'threads' => Thread::inRandomOrder()
+                ->limit(2)
+                ->pluck('description'),
+        ])->render();
+
+        $response = OpenAI::chat()->create([
+            'model' => 'gpt-3.5-turbo',
+            'messages' => [
+                ['role' => 'assistant', 'content' => $prompt],
+            ],
+        ]);
+
+        $instructions = $response['choices'][0]['message']['content'];
+
+        $newDescription = OpenAI::chat()->create([
+            'model' => 'gpt-3.5-turbo',
+            'messages' => [
+                [
+                    'role' => 'assistant', 'content' => 'please provide yourself updated instructions from this reflection:'
+                    .$instructions.
+                    'referring your previous instructions.'.$this->instructions,
+                ],
+            ],
+        ]);
+        $this->instructions = $newDescription['choices'][0]['message']['content'];
+        $this->save();
+    }
 }

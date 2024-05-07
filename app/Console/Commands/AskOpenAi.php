@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 use OpenAI\Laravel\Facades\OpenAI;
 
 use function Laravel\Prompts\spin;
-use function Laravel\Prompts\text;
+use function Laravel\Prompts\textarea;
 use function Termwind\render;
 
 class AskOpenAi extends Command
@@ -39,7 +39,7 @@ class AskOpenAi extends Command
     </div>
 HTML
         );
-        $question = text('What is your question?');
+        $question = textarea('What is your question?');
 
         //list all models /
         $models = OpenAI::Models()->list();

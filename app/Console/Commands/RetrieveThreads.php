@@ -31,6 +31,12 @@ class RetrieveThreads extends Command
     public function handle()
     {
         Thread::all()->each(function (Thread $thread) {
+            if ($thread->provider_value == null) {
+                $this->info('skipping thread '.$thread->name.' no provider value');
+
+                return;
+            }
+
             table([
                 ['Thread', 'Description', 'Provider value'],
                 [$thread->name, $thread->description, $thread->provider_value],

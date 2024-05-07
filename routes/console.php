@@ -18,3 +18,7 @@ Schedule::call(function () {
 Schedule::call(function () {
     Artisan::call('runs:update');
 })->everyMinute();
+
+Schedule::call(function () {
+    Artisan::call('agent:reflect');
+})->hourly();
