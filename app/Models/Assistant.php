@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use OpenAI\Laravel\Facades\OpenAI;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * @method static create(mixed $validated)
@@ -17,6 +19,7 @@ use OpenAI\Laravel\Facades\OpenAI;
 class Assistant extends Model
 {
     use HasFactory;
+    use LogsActivity;
     use SoftDeletes;
 
     /**
@@ -118,5 +121,11 @@ class Assistant extends Model
             ]);
 
         $thread->update(['provider_value' => $threadRun->threadId]);
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logOnly(['name', 'instructions']);
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Nova\Dashboards\Main;
+use Bolechen\NovaActivitylog\NovaActivitylog;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
@@ -49,18 +51,18 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function dashboards()
     {
         return [
-            new \App\Nova\Dashboards\Main(),
+            new Main(),
         ];
     }
 
     /**
      * Get the tools that should be listed in the Nova sidebar.
-     *
-     * @return array
      */
-    public function tools()
+    public function tools(): array
     {
-        return [];
+        return [
+            new NovaActivitylog(),
+        ];
     }
 
     /**
