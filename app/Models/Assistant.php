@@ -98,11 +98,25 @@ class Assistant extends Model
                 [
                     'role' => 'assistant', 'content' => 'please provide yourself updated instructions from this reflection:'
                     .$instructions.
-                    'referring your previous instructions.'.$this->instructions,
+                    'referring your previous instructions.'.$this->instructions.' please provide updated instructions. in `512` character or less',
                 ],
             ],
         ]);
         $this->instructions = $newDescription['choices'][0]['message']['content'];
         $this->save();
+    }
+
+    public function processThread($thread): void
+    {
+        $messages = $thread->messages->select('role', 'content')->toArray();
+        $threadRun = OpenAI::threads()->createAndRun(
+            [
+                'assistant_id' => $this->provider_value,
+                'thread' => [
+                    'messages' => $messages,
+                ],
+            ]);
+
+        $thread->update(['provider_value' => $threadRun->threadId]);
     }
 }
