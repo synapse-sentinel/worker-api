@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\Assistant;
+use App\Models\Thread;
 use Illuminate\Console\Command;
 
 class AgentReflect extends Command
@@ -24,9 +25,10 @@ class AgentReflect extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): void
     {
         Assistant::each(function (Assistant $assistant) {
+            $assistant->processThread(Thread::inRandomOrder()->first());
             $assistant->reflect();
         });
     }
