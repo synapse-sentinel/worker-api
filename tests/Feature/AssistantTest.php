@@ -40,7 +40,21 @@ test('can be viewed in nova', function () {
     $response->assertStatus(200);
 });
 
-it('creates its user when created', function () {
-    $assistant = Assistant::factory()->create();
-    $this->assertNotNull($assistant->user);
+it('creates a  user for it to use', function () {
+    // Assuming you have set up database migrations and model factories
+    $assistant = Assistant::factory()->create([
+        'name' => 'Test Assistant',
+    ]);
+
+    // Perform the action
+    $this->post('/assistant', $assistant->toArray());
+
+    // Assert a new user is created
+    $this->assertDatabaseHas('users', [
+        'email' => 'Test Assistant@synapse-sentinel.com',
+    ]);
+
+    // Assert the user is associated with the assistant
+    $user = User::where('email', 'Test Assistant@synapse-sentinel.com')->first();
+    $this->assertEquals($user->id, $assistant->fresh()->user_id);
 });
