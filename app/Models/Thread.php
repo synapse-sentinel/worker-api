@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Jobs\SummarizeThreadJob;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -32,15 +33,6 @@ class Thread extends Model
 
     public function summarize(): void
     {
-        $this->update([
-            'description' => json_encode([
-                'messages' => $this->messages->map(function (Message $message) {
-                    return [
-                        'user' => $message->user->name,
-                        'content' => $message->content,
-                    ];
-                }),
-            ]),
-        ]);
+        SummarizeThreadJob::dispatch($this);
     }
 }
