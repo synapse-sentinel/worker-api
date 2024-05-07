@@ -21,6 +21,7 @@ class MessageObserver
     public function created(Message $message): void
     {
         Artisan::call('messages:assign');
+        $message->thread->summarize();
     }
 
     /**

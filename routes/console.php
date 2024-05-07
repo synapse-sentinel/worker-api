@@ -8,10 +8,6 @@ Schedule::call(function () {
 })->daily();
 
 Schedule::call(function () {
-    Artisan::call('messages:assign');
-})->everyMinute();
-
-Schedule::call(function () {
     Artisan::call('messages:process-recommendations');
 })->everyMinute();
 
