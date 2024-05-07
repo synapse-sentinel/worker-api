@@ -39,3 +39,8 @@ test('can be viewed in nova', function () {
     $response = $this->get(config('nova.path').'resources/assistants/'.$model->id);
     $response->assertStatus(200);
 });
+
+it('creates its user when created', function () {
+    $assistant = Assistant::factory()->create();
+    $this->assertNotNull($assistant->user);
+});
