@@ -2,6 +2,7 @@
 
 namespace PartridgeRocks\RecentMessages;
 
+use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Nova\Card;
 
@@ -27,7 +28,7 @@ class RecentMessages extends Card
     public function jsonSerialize(): array
     {
         return array_merge(parent::jsonSerialize(), [
-            'messages' => \App\Models\Message::whereNot('user_id', Auth::user()->getAuthIdentifier())->with('user') // assuming there's a user relationship
+            'messages' => Message::whereNot('user_id', Auth::user()->getAuthIdentifier())->with('user') // assuming there's a user relationship
                 ->latest()
                 ->take(5)
                 ->get()

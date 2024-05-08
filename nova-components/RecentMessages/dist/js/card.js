@@ -22,26 +22,35 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     sendReply: function sendReply(message) {
       var _this = this;
+      var index = this.messages.findIndex(function (m) {
+        return m.id === message.id;
+      });
+      if (index !== -1) {
+        // Remove the message from the list
+        this.messages.splice(index, 1);
+      }
       var reply = message.reply;
       message.reply = ''; // Clear input immediately to prepare for next input
-      // Optimistically remove the message from UI
-      var removedMessage = this.messages.filter(function (item) {
-        return item.id === message.id;
-      })[0];
       this.messages = this.messages.filter(function (item) {
+        console.log({
+          item: item,
+          message: message
+        });
         return item.id !== message.id;
       });
-
+      console.log(this.messages.length);
       // Send the reply to the server
       Nova.request().post("/nova-vendor/recent-messages/create-message/".concat(message.thread.id), {
         reply: reply
       }).then(function (response) {
-        Nova.toast.success('Reply sent successfully');
+        // Handle success response
+        // Optimistically updating the UI
       })["catch"](function (error) {
         console.error("Error sending reply: ", error);
-        Nova.toast.error('Failed to send reply');
-        // Optionally re-add the message if reply fails
-        _this.messages.push(removedMessage);
+        // Handle failure by adding the message back to the list
+        if (confirm('Failed to send reply. Would you like to retry?')) {
+          _this.messages.push(message);
+        }
       });
     },
     navigateToThread: function navigateToThread(threadId) {
