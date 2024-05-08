@@ -26,7 +26,8 @@
         "spatie/laravel-activitylog": "^4.8",
         "spatie/laravel-login-link": "^1.2",
         "synapse-sentinel/ask-agent": "@dev",
-        "tightenco/ziggy": "^2.0"
+        "tightenco/ziggy": "^2.0",
+        "partridge-rocks/recent-messages": "@dev"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -93,6 +94,10 @@
         "0": {
             "type": "path",
             "url": "./nova-components/AskAgent"
+        },
+        "1": {
+            "type": "path",
+            "url": "./nova-components/RecentMessages"
         }
     }
 }
