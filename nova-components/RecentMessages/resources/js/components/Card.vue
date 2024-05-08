@@ -48,8 +48,9 @@ export default {
                 .catch(error => {
                     console.error("Error sending reply: ", error);
                     Nova.toast.error('Failed to send reply');
-                    // Optionally re-add the message if reply fails
-                    this.messages.push(removedMessage);
+                    if (confirm('Failed to send reply. Would you like to retry?')) {
+                        this.messages.push(removedMessage);
+                    }
                 });
         },
         navigateToThread(threadId) {
