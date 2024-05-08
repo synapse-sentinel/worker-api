@@ -8,7 +8,7 @@
             </div>
             <div  class="text-xs text-gray-500 dark:text-gray-400 mb-2">{{ message.created_at }}</div>
             <div class="w-full flex min-h-8 px-1 py-1 rounded text-left text-gray-500 dark:text-gray-500 focus:outline-none focus:ring focus:ring-primary-200 dark:focus:ring-gray-600 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800">
-                {{ message.content }}
+                <div v-html="renderMarkdown(message.content)"></div>
             </div>
             <div class="mt-2 transition-opacity duration-300 ease-in-out flex">
                 <input type="text" v-model="message.reply" placeholder="Reply..."
@@ -23,8 +23,15 @@
 </template>
 
 <script>
+import MarkdownIt from 'markdown-it';
+
 export default {
     props: ['card'],
+    data() {
+        return {
+            md: new MarkdownIt()
+        };
+    },
     computed: {
         messages() {
             return this.card.messages || [];
@@ -43,7 +50,6 @@ export default {
                 console.log({item: item, message: message});
                 return item.id !== message.id;
             });
-            console.log(this.messages.length);
             // Send the reply to the server
             Nova.request().post(`/nova-vendor/recent-messages/create-message/${message.thread.id}`, { reply })
                 .then(response => {
@@ -60,6 +66,9 @@ export default {
         },
         navigateToThread(threadId) {
             window.location.href = "/resources/threads/" + threadId;
+        },
+        renderMarkdown(content) {
+            return this.md.render(content);
         }
     },
 }
