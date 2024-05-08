@@ -3358,7 +3358,7 @@
         },
         {
             "name": "partridge-rocks/recent-messages",
-            "version": "dev-feature/human-readable-thread-summary",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/RecentMessages",
@@ -7192,7 +7192,7 @@
         },
         {
             "name": "synapse-sentinel/ask-agent",
-            "version": "dev-feature/human-readable-thread-summary",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/AskAgent",
