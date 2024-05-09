@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "07e8359d3a0b197394346aba5c5158bb",
+    "content-hash": "406bc039a69672f18575c2495e5e102e",
     "packages": [
         {
             "name": "bolechen/nova-activitylog",
@@ -3359,14 +3359,21 @@
         {
             "name": "partridge-rocks/recent-messages",
             "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Partridge-Rocks/recent-messages.git",
+                "reference": "19a90a66f8c393dbe7684791e99e0c177f1caf66"
+            },
             "dist": {
-                "type": "path",
-                "url": "./nova-components/RecentMessages",
-                "reference": "b610f89775b32496f1ff49c6aeddf8126103abc9"
+                "type": "zip",
+                "url": "https://api.github.com/repos/Partridge-Rocks/recent-messages/zipball/19a90a66f8c393dbe7684791e99e0c177f1caf66",
+                "reference": "19a90a66f8c393dbe7684791e99e0c177f1caf66",
+                "shasum": ""
             },
             "require": {
                 "php": "^7.3|^8.0"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -3388,9 +3395,11 @@
                 "laravel",
                 "nova"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "source": "https://github.com/Partridge-Rocks/recent-messages/tree/main",
+                "issues": "https://github.com/Partridge-Rocks/recent-messages/issues"
+            },
+            "time": "2024-05-08T08:00:05+00:00"
         },
         {
             "name": "php-http/discovery",

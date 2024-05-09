@@ -1,0 +1,852 @@
+{
+    "routes": [
+        {
+            "uri": "_dusk\/login\/{userId}\/{guard?}",
+            "name": "dusk.login",
+            "action": "Laravel\\Dusk\\Http\\Controllers\\UserController@login"
+        },
+        {
+            "uri": "_dusk\/logout\/{guard?}",
+            "name": "dusk.logout",
+            "action": "Laravel\\Dusk\\Http\\Controllers\\UserController@logout"
+        },
+        {
+            "uri": "_dusk\/user\/{guard?}",
+            "name": "dusk.user",
+            "action": "Laravel\\Dusk\\Http\\Controllers\\UserController@user"
+        },
+        {
+            "uri": "nova-api\/scripts\/{script}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ScriptController"
+        },
+        {
+            "uri": "nova-api\/styles\/{style}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\StyleController"
+        },
+        {
+            "uri": "nova-api\/search",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\SearchController"
+        },
+        {
+            "uri": "nova-api\/impersonate",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ImpersonateController@startImpersonating"
+        },
+        {
+            "uri": "nova-api\/impersonate",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ImpersonateController@stopImpersonating"
+        },
+        {
+            "uri": "nova-api\/{resource}\/field\/{field}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\FieldController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/field\/{field}\/preview",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\FieldPreviewController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/field-attachment\/{field}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\FieldAttachmentController@store"
+        },
+        {
+            "uri": "nova-api\/{resource}\/field-attachment\/{field}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\FieldAttachmentController@destroyAttachment"
+        },
+        {
+            "uri": "nova-api\/{resource}\/field-attachment\/{field}\/draftId",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\FieldAttachmentController@draftId"
+        },
+        {
+            "uri": "nova-api\/{resource}\/field-attachment\/{field}\/{draftId}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\FieldAttachmentController@destroyPending"
+        },
+        {
+            "uri": "nova-api\/{resource}\/creation-fields",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\CreationFieldController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/update-fields",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\UpdateFieldController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/creation-pivot-fields\/{relatedResource}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\CreationPivotFieldController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/update-pivot-fields\/{relatedResource}\/{relatedResourceId}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\UpdatePivotFieldController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/creation-fields",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\CreationFieldSyncController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/update-fields",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\UpdateFieldController@sync"
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/creation-pivot-fields\/{relatedResource}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\CreationPivotFieldController@sync"
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/update-pivot-fields\/{relatedResource}\/{relatedResourceId}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\UpdatePivotFieldController@sync"
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/download\/{field}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\FieldDownloadController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/field\/{field}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\FieldDestroyController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/{relatedResource}\/{relatedResourceId}\/field\/{field}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\PivotFieldDestroyController"
+        },
+        {
+            "uri": "nova-api\/dashboards\/{dashboard}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\DashboardController"
+        },
+        {
+            "uri": "nova-api\/dashboards\/cards\/{dashboard}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\DashboardCardController"
+        },
+        {
+            "uri": "nova-api\/nova-notifications",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\NotificationIndexController"
+        },
+        {
+            "uri": "nova-api\/nova-notifications\/read-all",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\NotificationReadAllController"
+        },
+        {
+            "uri": "nova-api\/nova-notifications\/{notification}\/read",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\NotificationReadController"
+        },
+        {
+            "uri": "nova-api\/nova-notifications\/{notification}\/unread",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\NotificationUnreadController"
+        },
+        {
+            "uri": "nova-api\/nova-notifications",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\NotificationDeleteAllController"
+        },
+        {
+            "uri": "nova-api\/nova-notifications\/{notification}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\NotificationDeleteController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/actions",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ActionController@index"
+        },
+        {
+            "uri": "nova-api\/{resource}\/action",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ActionController@store"
+        },
+        {
+            "uri": "nova-api\/{resource}\/action",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ActionController@sync"
+        },
+        {
+            "uri": "nova-api\/{resource}\/filters",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\FilterController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/lenses",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensController@index"
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensController@show"
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/count",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensResourceCountController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensResourceDestroyController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/force",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensResourceForceDeleteController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/restore",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensResourceRestoreController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/actions",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensActionController@index"
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/action",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensActionController@store"
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/action",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensActionController@sync"
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/filters",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensFilterController@index"
+        },
+        {
+            "uri": "nova-api\/metrics\/{metric}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\DashboardMetricController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/metrics",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\MetricController@index"
+        },
+        {
+            "uri": "nova-api\/{resource}\/metrics\/{metric}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\MetricController@show"
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/metrics\/{metric}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\DetailMetricController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/metrics",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensMetricController@index"
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/metrics\/{metric}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensMetricController@show"
+        },
+        {
+            "uri": "nova-api\/{resource}\/cards",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\CardController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/cards",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensCardController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/relate-authorization",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\RelatableAuthorizationController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/soft-deletes",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\SoftDeleteStatusController"
+        },
+        {
+            "uri": "nova-api\/{resource}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceIndexController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/search",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceSearchController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/count",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceCountController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/detach",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceDetachController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/restore",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceRestoreController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/force",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceForceDeleteController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceShowController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/preview",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourcePreviewController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/peek",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourcePeekController"
+        },
+        {
+            "uri": "nova-api\/{resource}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceStoreController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceUpdateController"
+        },
+        {
+            "uri": "nova-api\/{resource}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceDestroyController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/associatable\/{field}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\AssociatableController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/attachable\/{field}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\AttachableController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/morphable\/{field}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\MorphableController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/attach\/{relatedResource}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceAttachController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/update-attached\/{relatedResource}\/{relatedResourceId}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\AttachedResourceUpdateController"
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/attach-morphed\/{relatedResource}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\MorphedResourceAttachController"
+        },
+        {
+            "uri": "sanctum\/csrf-cookie",
+            "name": "sanctum.csrf-cookie",
+            "action": "Laravel\\Sanctum\\Http\\Controllers\\CsrfCookieController@show"
+        },
+        {
+            "uri": "_ignition\/health-check",
+            "name": "ignition.healthCheck",
+            "action": "Spatie\\LaravelIgnition\\Http\\Controllers\\HealthCheckController"
+        },
+        {
+            "uri": "_ignition\/execute-solution",
+            "name": "ignition.executeSolution",
+            "action": "Spatie\\LaravelIgnition\\Http\\Controllers\\ExecuteSolutionController"
+        },
+        {
+            "uri": "_ignition\/update-config",
+            "name": "ignition.updateConfig",
+            "action": "Spatie\\LaravelIgnition\\Http\\Controllers\\UpdateConfigController"
+        },
+        {
+            "uri": "laravel-login-link-login",
+            "name": "loginLinkLogin",
+            "action": "Spatie\\LoginLink\\Http\\Controllers\\LoginLinkController"
+        },
+        {
+            "uri": "login",
+            "name": "nova.pages.login",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LoginController@showLoginForm"
+        },
+        {
+            "uri": "login",
+            "name": "nova.login",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LoginController@login"
+        },
+        {
+            "uri": "logout",
+            "name": "nova.logout",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LoginController@logout"
+        },
+        {
+            "uri": "password\/reset",
+            "name": "nova.pages.password.email",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ForgotPasswordController@showLinkRequestForm"
+        },
+        {
+            "uri": "password\/email",
+            "name": "nova.password.email",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ForgotPasswordController@sendResetLinkEmail"
+        },
+        {
+            "uri": "password\/reset\/{token}",
+            "name": "nova.pages.password.reset",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResetPasswordController@showResetForm"
+        },
+        {
+            "uri": "password\/reset",
+            "name": "nova.password.reset",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResetPasswordController@reset"
+        },
+        {
+            "uri": "403",
+            "name": "nova.pages.403",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\Error403Controller"
+        },
+        {
+            "uri": "404",
+            "name": "nova.pages.404",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\Error404Controller"
+        },
+        {
+            "uri": "\/",
+            "name": "nova.pages.home",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\HomeController"
+        },
+        {
+            "uri": "dashboard",
+            "name": "nova.pages.dashboard",
+            "action": "\\Illuminate\\Routing\\RedirectController"
+        },
+        {
+            "uri": "dashboards\/{name}",
+            "name": "nova.pages.dashboard.custom",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\DashboardController"
+        },
+        {
+            "uri": "resources\/{resource}",
+            "name": "nova.pages.index",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\ResourceIndexController"
+        },
+        {
+            "uri": "resources\/{resource}\/new",
+            "name": "nova.pages.create",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\ResourceCreateController"
+        },
+        {
+            "uri": "resources\/{resource}\/{resourceId}",
+            "name": "nova.pages.detail",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\ResourceDetailController"
+        },
+        {
+            "uri": "resources\/{resource}\/{resourceId}\/edit",
+            "name": "nova.pages.edit",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\ResourceUpdateController"
+        },
+        {
+            "uri": "resources\/{resource}\/{resourceId}\/replicate",
+            "name": "nova.pages.replicate",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\ResourceReplicateController"
+        },
+        {
+            "uri": "resources\/{resource}\/lens\/{lens}",
+            "name": "nova.pages.lens",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\LensController"
+        },
+        {
+            "uri": "resources\/{resource}\/{resourceId}\/attach\/{relatedResource}",
+            "name": "nova.pages.attach",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\AttachableController"
+        },
+        {
+            "uri": "resources\/{resource}\/{resourceId}\/edit-attached\/{relatedResource}\/{relatedResourceId}",
+            "name": "nova.pages.edit-attached",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\AttachedResourceUpdateController"
+        },
+        {
+            "uri": "api\/user",
+            "name": null,
+            "action": "Closure"
+        },
+        {
+            "uri": "api\/assistants",
+            "name": "assistants.index",
+            "action": "App\\Http\\Controllers\\AssistantController@index"
+        },
+        {
+            "uri": "api\/assistants",
+            "name": "assistants.store",
+            "action": "App\\Http\\Controllers\\AssistantController@store"
+        },
+        {
+            "uri": "api\/assistants\/{assistant}",
+            "name": "assistants.show",
+            "action": "App\\Http\\Controllers\\AssistantController@show"
+        },
+        {
+            "uri": "api\/assistants\/{assistant}",
+            "name": "assistants.update",
+            "action": "App\\Http\\Controllers\\AssistantController@update"
+        },
+        {
+            "uri": "api\/assistants\/{assistant}",
+            "name": "assistants.destroy",
+            "action": "App\\Http\\Controllers\\AssistantController@destroy"
+        },
+        {
+            "uri": "api\/threads",
+            "name": "threads.index",
+            "action": "App\\Http\\Controllers\\ThreadController@index"
+        },
+        {
+            "uri": "api\/threads",
+            "name": "threads.store",
+            "action": "App\\Http\\Controllers\\ThreadController@store"
+        },
+        {
+            "uri": "api\/threads\/{thread}",
+            "name": "threads.show",
+            "action": "App\\Http\\Controllers\\ThreadController@show"
+        },
+        {
+            "uri": "api\/threads\/{thread}",
+            "name": "threads.update",
+            "action": "App\\Http\\Controllers\\ThreadController@update"
+        },
+        {
+            "uri": "api\/threads\/{thread}",
+            "name": "threads.destroy",
+            "action": "App\\Http\\Controllers\\ThreadController@destroy"
+        },
+        {
+            "uri": "up",
+            "name": null,
+            "action": "Closure"
+        },
+        {
+            "uri": "redirect-to-login",
+            "name": "login",
+            "action": "Closure"
+        },
+        {
+            "uri": "nova-vendor\/recent-messages\/create-message\/{thread}",
+            "name": null,
+            "action": "Closure"
+        }
+    ],
+    "database_schema": {
+        "abilities": [
+            "id",
+            "name",
+            "title",
+            "entity_id",
+            "entity_type",
+            "only_owned",
+            "options",
+            "scope",
+            "created_at",
+            "updated_at"
+        ],
+        "action_events": [
+            "id",
+            "batch_id",
+            "user_id",
+            "name",
+            "actionable_type",
+            "actionable_id",
+            "target_type",
+            "target_id",
+            "model_type",
+            "model_id",
+            "fields",
+            "status",
+            "exception",
+            "created_at",
+            "updated_at",
+            "original",
+            "changes"
+        ],
+        "activity_log": [
+            "id",
+            "log_name",
+            "description",
+            "subject_type",
+            "event",
+            "subject_id",
+            "causer_type",
+            "causer_id",
+            "properties",
+            "batch_uuid",
+            "created_at",
+            "updated_at"
+        ],
+        "ai_models": [
+            "id",
+            "name",
+            "description",
+            "owned_by",
+            "created_at",
+            "updated_at",
+            "deleted_at"
+        ],
+        "assigned_roles": [
+            "id",
+            "role_id",
+            "entity_id",
+            "entity_type",
+            "restricted_to_id",
+            "restricted_to_type",
+            "scope"
+        ],
+        "assistants": [
+            "id",
+            "user_id",
+            "name",
+            "avatar",
+            "description",
+            "ai_model_id",
+            "instructions",
+            "provider",
+            "provider_value",
+            "created_at",
+            "updated_at",
+            "deleted_at"
+        ],
+        "cache": [
+            "key",
+            "value",
+            "expiration"
+        ],
+        "cache_locks": [
+            "key",
+            "owner",
+            "expiration"
+        ],
+        "failed_jobs": [
+            "id",
+            "uuid",
+            "connection",
+            "queue",
+            "payload",
+            "exception",
+            "failed_at"
+        ],
+        "job_batches": [
+            "id",
+            "name",
+            "total_jobs",
+            "pending_jobs",
+            "failed_jobs",
+            "failed_job_ids",
+            "options",
+            "cancelled_at",
+            "created_at",
+            "finished_at"
+        ],
+        "jobs": [
+            "id",
+            "queue",
+            "payload",
+            "attempts",
+            "reserved_at",
+            "available_at",
+            "created_at"
+        ],
+        "message_recommendations": [
+            "id",
+            "message_id",
+            "assistant_id",
+            "run_id",
+            "reason",
+            "points",
+            "created_at",
+            "updated_at"
+        ],
+        "messages": [
+            "id",
+            "user_id",
+            "assistant_id",
+            "thread_id",
+            "content",
+            "processed",
+            "provider_value",
+            "role",
+            "created_at",
+            "updated_at"
+        ],
+        "migrations": [
+            "id",
+            "migration",
+            "batch"
+        ],
+        "nova_field_attachments": [
+            "id",
+            "attachable_type",
+            "attachable_id",
+            "attachment",
+            "disk",
+            "url",
+            "created_at",
+            "updated_at"
+        ],
+        "nova_notifications": [
+            "id",
+            "type",
+            "notifiable_type",
+            "notifiable_id",
+            "data",
+            "read_at",
+            "created_at",
+            "updated_at",
+            "deleted_at"
+        ],
+        "nova_pending_field_attachments": [
+            "id",
+            "draft_id",
+            "attachment",
+            "disk",
+            "created_at",
+            "updated_at"
+        ],
+        "password_reset_tokens": [
+            "email",
+            "token",
+            "created_at"
+        ],
+        "people": [
+            "id",
+            "first_name",
+            "last_name",
+            "full_name",
+            "created_at",
+            "updated_at"
+        ],
+        "permissions": [
+            "id",
+            "ability_id",
+            "entity_id",
+            "entity_type",
+            "forbidden",
+            "scope"
+        ],
+        "personal_access_tokens": [
+            "id",
+            "tokenable_type",
+            "tokenable_id",
+            "name",
+            "token",
+            "abilities",
+            "last_used_at",
+            "expires_at",
+            "created_at",
+            "updated_at"
+        ],
+        "roles": [
+            "id",
+            "name",
+            "title",
+            "scope",
+            "created_at",
+            "updated_at"
+        ],
+        "runs": [
+            "id",
+            "provider_value",
+            "status",
+            "assistant_id",
+            "thread_id",
+            "created_at",
+            "updated_at"
+        ],
+        "sessions": [
+            "id",
+            "user_id",
+            "ip_address",
+            "user_agent",
+            "payload",
+            "last_activity"
+        ],
+        "team_invitations": [
+            "id",
+            "team_id",
+            "email",
+            "role",
+            "created_at",
+            "updated_at"
+        ],
+        "team_user": [
+            "id",
+            "team_id",
+            "user_id",
+            "role",
+            "created_at",
+            "updated_at"
+        ],
+        "teams": [
+            "id",
+            "user_id",
+            "name",
+            "personal_team",
+            "created_at",
+            "updated_at"
+        ],
+        "threads": [
+            "id",
+            "name",
+            "description",
+            "provider_value",
+            "created_at",
+            "updated_at",
+            "deleted_at"
+        ],
+        "users": [
+            "id",
+            "name",
+            "email",
+            "email_verified_at",
+            "password",
+            "remember_token",
+            "current_team_id",
+            "profile_photo_path",
+            "created_at",
+            "updated_at"
+        ]
+    }
+}

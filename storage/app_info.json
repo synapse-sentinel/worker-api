@@ -1,0 +1,2591 @@
+{
+    "routes": [
+        {
+            "uri": "_dusk\/login\/{userId}\/{guard?}",
+            "name": "dusk.login",
+            "action": "Laravel\\Dusk\\Http\\Controllers\\UserController@login",
+            "middleware": [
+                "web"
+            ],
+            "parameters": [
+                "userId",
+                "guard"
+            ],
+            "controller_methods": [
+                "user",
+                "login",
+                "logout"
+            ]
+        },
+        {
+            "uri": "_dusk\/logout\/{guard?}",
+            "name": "dusk.logout",
+            "action": "Laravel\\Dusk\\Http\\Controllers\\UserController@logout",
+            "middleware": [
+                "web"
+            ],
+            "parameters": [
+                "guard"
+            ],
+            "controller_methods": [
+                "user",
+                "login",
+                "logout"
+            ]
+        },
+        {
+            "uri": "_dusk\/user\/{guard?}",
+            "name": "dusk.user",
+            "action": "Laravel\\Dusk\\Http\\Controllers\\UserController@user",
+            "middleware": [
+                "web"
+            ],
+            "parameters": [
+                "guard"
+            ],
+            "controller_methods": [
+                "user",
+                "login",
+                "logout"
+            ]
+        },
+        {
+            "uri": "nova-api\/scripts\/{script}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ScriptController",
+            "middleware": [
+                "nova:api",
+                "Illuminate\\Http\\Middleware\\CheckResponseForModifications"
+            ],
+            "parameters": [
+                "script"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/styles\/{style}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\StyleController",
+            "middleware": [
+                "nova:api",
+                "Illuminate\\Http\\Middleware\\CheckResponseForModifications"
+            ],
+            "parameters": [
+                "style"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/search",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\SearchController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/impersonate",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ImpersonateController@startImpersonating",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [],
+            "controller_methods": [
+                "startImpersonating",
+                "stopImpersonating",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/impersonate",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ImpersonateController@stopImpersonating",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [],
+            "controller_methods": [
+                "startImpersonating",
+                "stopImpersonating",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/field\/{field}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\FieldController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "field"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/field\/{field}\/preview",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\FieldPreviewController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "field"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/field-attachment\/{field}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\FieldAttachmentController@store",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "field"
+            ],
+            "controller_methods": [
+                "store",
+                "destroyAttachment",
+                "destroyPending",
+                "draftId",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/field-attachment\/{field}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\FieldAttachmentController@destroyAttachment",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "field"
+            ],
+            "controller_methods": [
+                "store",
+                "destroyAttachment",
+                "destroyPending",
+                "draftId",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/field-attachment\/{field}\/draftId",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\FieldAttachmentController@draftId",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "field"
+            ],
+            "controller_methods": [
+                "store",
+                "destroyAttachment",
+                "destroyPending",
+                "draftId",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/field-attachment\/{field}\/{draftId}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\FieldAttachmentController@destroyPending",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "field",
+                "draftId"
+            ],
+            "controller_methods": [
+                "store",
+                "destroyAttachment",
+                "destroyPending",
+                "draftId",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/creation-fields",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\CreationFieldController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/update-fields",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\UpdateFieldController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/creation-pivot-fields\/{relatedResource}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\CreationPivotFieldController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId",
+                "relatedResource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/update-pivot-fields\/{relatedResource}\/{relatedResourceId}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\UpdatePivotFieldController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId",
+                "relatedResource",
+                "relatedResourceId"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/creation-fields",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\CreationFieldSyncController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/update-fields",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\UpdateFieldController@sync",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId"
+            ],
+            "controller_methods": [
+                "__invoke",
+                "sync",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/creation-pivot-fields\/{relatedResource}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\CreationPivotFieldController@sync",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId",
+                "relatedResource"
+            ],
+            "controller_methods": [
+                "__invoke",
+                "sync",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/update-pivot-fields\/{relatedResource}\/{relatedResourceId}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\UpdatePivotFieldController@sync",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId",
+                "relatedResource",
+                "relatedResourceId"
+            ],
+            "controller_methods": [
+                "__invoke",
+                "sync",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/download\/{field}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\FieldDownloadController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId",
+                "field"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/field\/{field}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\FieldDestroyController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId",
+                "field"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/{relatedResource}\/{relatedResourceId}\/field\/{field}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\PivotFieldDestroyController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId",
+                "relatedResource",
+                "relatedResourceId",
+                "field"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/dashboards\/{dashboard}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\DashboardController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "dashboard"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/dashboards\/cards\/{dashboard}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\DashboardCardController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "dashboard"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/nova-notifications",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\NotificationIndexController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/nova-notifications\/read-all",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\NotificationReadAllController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/nova-notifications\/{notification}\/read",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\NotificationReadController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "notification"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/nova-notifications\/{notification}\/unread",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\NotificationUnreadController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "notification"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/nova-notifications",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\NotificationDeleteAllController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/nova-notifications\/{notification}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\NotificationDeleteController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "notification"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/actions",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ActionController@index",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": [
+                "index",
+                "store",
+                "sync",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/action",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ActionController@store",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": [
+                "index",
+                "store",
+                "sync",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/action",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ActionController@sync",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": [
+                "index",
+                "store",
+                "sync",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/filters",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\FilterController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/lenses",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensController@index",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": [
+                "index",
+                "show",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensController@show",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "lens"
+            ],
+            "controller_methods": [
+                "index",
+                "show",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/count",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensResourceCountController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "lens"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensResourceDestroyController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "lens"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/force",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensResourceForceDeleteController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "lens"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/restore",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensResourceRestoreController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "lens"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/actions",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensActionController@index",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "lens"
+            ],
+            "controller_methods": [
+                "index",
+                "store",
+                "sync",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/action",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensActionController@store",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "lens"
+            ],
+            "controller_methods": [
+                "index",
+                "store",
+                "sync",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/action",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensActionController@sync",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "lens"
+            ],
+            "controller_methods": [
+                "index",
+                "store",
+                "sync",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/filters",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensFilterController@index",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "lens"
+            ],
+            "controller_methods": [
+                "index",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/metrics\/{metric}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\DashboardMetricController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "metric"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/metrics",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\MetricController@index",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": [
+                "index",
+                "show",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/metrics\/{metric}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\MetricController@show",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "metric"
+            ],
+            "controller_methods": [
+                "index",
+                "show",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/metrics\/{metric}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\DetailMetricController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId",
+                "metric"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/metrics",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensMetricController@index",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "lens"
+            ],
+            "controller_methods": [
+                "index",
+                "show",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/metrics\/{metric}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensMetricController@show",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "lens",
+                "metric"
+            ],
+            "controller_methods": [
+                "index",
+                "show",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call"
+            ]
+        },
+        {
+            "uri": "nova-api\/{resource}\/cards",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\CardController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/lens\/{lens}\/cards",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LensCardController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "lens"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/relate-authorization",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\RelatableAuthorizationController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/soft-deletes",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\SoftDeleteStatusController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceIndexController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/search",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceSearchController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/count",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceCountController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/detach",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceDetachController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/restore",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceRestoreController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/force",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceForceDeleteController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceShowController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/preview",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourcePreviewController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/peek",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourcePeekController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceStoreController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceUpdateController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceDestroyController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/associatable\/{field}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\AssociatableController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "field"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/attachable\/{field}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\AttachableController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId",
+                "field"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/morphable\/{field}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\MorphableController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "field"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/attach\/{relatedResource}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResourceAttachController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId",
+                "relatedResource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/update-attached\/{relatedResource}\/{relatedResourceId}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\AttachedResourceUpdateController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId",
+                "relatedResource",
+                "relatedResourceId"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-api\/{resource}\/{resourceId}\/attach-morphed\/{relatedResource}",
+            "name": "nova.api.",
+            "action": "Laravel\\Nova\\Http\\Controllers\\MorphedResourceAttachController",
+            "middleware": [
+                "nova:api"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId",
+                "relatedResource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "sanctum\/csrf-cookie",
+            "name": "sanctum.csrf-cookie",
+            "action": "Laravel\\Sanctum\\Http\\Controllers\\CsrfCookieController@show",
+            "middleware": [
+                "web"
+            ],
+            "parameters": [],
+            "controller_methods": [
+                "show"
+            ]
+        },
+        {
+            "uri": "_ignition\/health-check",
+            "name": "ignition.healthCheck",
+            "action": "Spatie\\LaravelIgnition\\Http\\Controllers\\HealthCheckController",
+            "middleware": [
+                "Spatie\\LaravelIgnition\\Http\\Middleware\\RunnableSolutionsEnabled"
+            ],
+            "parameters": [],
+            "controller_methods": []
+        },
+        {
+            "uri": "_ignition\/execute-solution",
+            "name": "ignition.executeSolution",
+            "action": "Spatie\\LaravelIgnition\\Http\\Controllers\\ExecuteSolutionController",
+            "middleware": [
+                "Spatie\\LaravelIgnition\\Http\\Middleware\\RunnableSolutionsEnabled"
+            ],
+            "parameters": [],
+            "controller_methods": []
+        },
+        {
+            "uri": "_ignition\/update-config",
+            "name": "ignition.updateConfig",
+            "action": "Spatie\\LaravelIgnition\\Http\\Controllers\\UpdateConfigController",
+            "middleware": [
+                "Spatie\\LaravelIgnition\\Http\\Middleware\\RunnableSolutionsEnabled"
+            ],
+            "parameters": [],
+            "controller_methods": []
+        },
+        {
+            "uri": "laravel-login-link-login",
+            "name": "loginLinkLogin",
+            "action": "Spatie\\LoginLink\\Http\\Controllers\\LoginLinkController",
+            "middleware": [
+                "web"
+            ],
+            "parameters": [],
+            "controller_methods": []
+        },
+        {
+            "uri": "login",
+            "name": "nova.pages.login",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LoginController@showLoginForm",
+            "middleware": [
+                "nova"
+            ],
+            "parameters": [],
+            "controller_methods": [
+                "__construct",
+                "showLoginForm",
+                "logout",
+                "redirectPath",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call",
+                "login",
+                "username",
+                "maxAttempts",
+                "decayMinutes",
+                "validateWith",
+                "validate",
+                "validateWithBag"
+            ]
+        },
+        {
+            "uri": "login",
+            "name": "nova.login",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LoginController@login",
+            "middleware": [
+                "nova"
+            ],
+            "parameters": [],
+            "controller_methods": [
+                "__construct",
+                "showLoginForm",
+                "logout",
+                "redirectPath",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call",
+                "login",
+                "username",
+                "maxAttempts",
+                "decayMinutes",
+                "validateWith",
+                "validate",
+                "validateWithBag"
+            ]
+        },
+        {
+            "uri": "logout",
+            "name": "nova.logout",
+            "action": "Laravel\\Nova\\Http\\Controllers\\LoginController@logout",
+            "middleware": [
+                "web",
+                "Laravel\\Nova\\Http\\Middleware\\HandleInertiaRequests",
+                "Laravel\\Nova\\Http\\Middleware\\DispatchServingNovaEvent",
+                "Laravel\\Nova\\Http\\Middleware\\BootTools"
+            ],
+            "parameters": [],
+            "controller_methods": [
+                "__construct",
+                "showLoginForm",
+                "logout",
+                "redirectPath",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call",
+                "login",
+                "username",
+                "maxAttempts",
+                "decayMinutes",
+                "validateWith",
+                "validate",
+                "validateWithBag"
+            ]
+        },
+        {
+            "uri": "password\/reset",
+            "name": "nova.pages.password.email",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ForgotPasswordController@showLinkRequestForm",
+            "middleware": [
+                "nova"
+            ],
+            "parameters": [],
+            "controller_methods": [
+                "__construct",
+                "showLinkRequestForm",
+                "broker",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call",
+                "sendResetLinkEmail",
+                "validateWith",
+                "validate",
+                "validateWithBag"
+            ]
+        },
+        {
+            "uri": "password\/email",
+            "name": "nova.password.email",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ForgotPasswordController@sendResetLinkEmail",
+            "middleware": [
+                "nova"
+            ],
+            "parameters": [],
+            "controller_methods": [
+                "__construct",
+                "showLinkRequestForm",
+                "broker",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call",
+                "sendResetLinkEmail",
+                "validateWith",
+                "validate",
+                "validateWithBag"
+            ]
+        },
+        {
+            "uri": "password\/reset\/{token}",
+            "name": "nova.pages.password.reset",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResetPasswordController@showResetForm",
+            "middleware": [
+                "nova"
+            ],
+            "parameters": [
+                "token"
+            ],
+            "controller_methods": [
+                "__construct",
+                "showResetForm",
+                "redirectPath",
+                "broker",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call",
+                "reset",
+                "validateWith",
+                "validate",
+                "validateWithBag"
+            ]
+        },
+        {
+            "uri": "password\/reset",
+            "name": "nova.password.reset",
+            "action": "Laravel\\Nova\\Http\\Controllers\\ResetPasswordController@reset",
+            "middleware": [
+                "nova"
+            ],
+            "parameters": [],
+            "controller_methods": [
+                "__construct",
+                "showResetForm",
+                "redirectPath",
+                "broker",
+                "middleware",
+                "getMiddleware",
+                "callAction",
+                "__call",
+                "reset",
+                "validateWith",
+                "validate",
+                "validateWithBag"
+            ]
+        },
+        {
+            "uri": "403",
+            "name": "nova.pages.403",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\Error403Controller",
+            "middleware": [
+                "web",
+                "Laravel\\Nova\\Http\\Middleware\\HandleInertiaRequests",
+                "Laravel\\Nova\\Http\\Middleware\\DispatchServingNovaEvent",
+                "Laravel\\Nova\\Http\\Middleware\\BootTools"
+            ],
+            "parameters": [],
+            "controller_methods": []
+        },
+        {
+            "uri": "404",
+            "name": "nova.pages.404",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\Error404Controller",
+            "middleware": [
+                "web",
+                "Laravel\\Nova\\Http\\Middleware\\HandleInertiaRequests",
+                "Laravel\\Nova\\Http\\Middleware\\DispatchServingNovaEvent",
+                "Laravel\\Nova\\Http\\Middleware\\BootTools"
+            ],
+            "parameters": [],
+            "controller_methods": []
+        },
+        {
+            "uri": "\/",
+            "name": "nova.pages.home",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\HomeController",
+            "middleware": [
+                "nova",
+                "Laravel\\Nova\\Http\\Middleware\\Authenticate",
+                "Laravel\\Nova\\Http\\Middleware\\Authorize"
+            ],
+            "parameters": [],
+            "controller_methods": []
+        },
+        {
+            "uri": "dashboard",
+            "name": "nova.pages.dashboard",
+            "action": "\\Illuminate\\Routing\\RedirectController",
+            "middleware": [
+                "nova",
+                "Laravel\\Nova\\Http\\Middleware\\Authenticate",
+                "Laravel\\Nova\\Http\\Middleware\\Authorize"
+            ],
+            "parameters": [],
+            "controller_methods": []
+        },
+        {
+            "uri": "dashboards\/{name}",
+            "name": "nova.pages.dashboard.custom",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\DashboardController",
+            "middleware": [
+                "nova",
+                "Laravel\\Nova\\Http\\Middleware\\Authenticate",
+                "Laravel\\Nova\\Http\\Middleware\\Authorize"
+            ],
+            "parameters": [
+                "name"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "resources\/{resource}",
+            "name": "nova.pages.index",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\ResourceIndexController",
+            "middleware": [
+                "nova",
+                "Laravel\\Nova\\Http\\Middleware\\Authenticate",
+                "Laravel\\Nova\\Http\\Middleware\\Authorize"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "resources\/{resource}\/new",
+            "name": "nova.pages.create",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\ResourceCreateController",
+            "middleware": [
+                "nova",
+                "Laravel\\Nova\\Http\\Middleware\\Authenticate",
+                "Laravel\\Nova\\Http\\Middleware\\Authorize"
+            ],
+            "parameters": [
+                "resource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "resources\/{resource}\/{resourceId}",
+            "name": "nova.pages.detail",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\ResourceDetailController",
+            "middleware": [
+                "nova",
+                "Laravel\\Nova\\Http\\Middleware\\Authenticate",
+                "Laravel\\Nova\\Http\\Middleware\\Authorize"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "resources\/{resource}\/{resourceId}\/edit",
+            "name": "nova.pages.edit",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\ResourceUpdateController",
+            "middleware": [
+                "nova",
+                "Laravel\\Nova\\Http\\Middleware\\Authenticate",
+                "Laravel\\Nova\\Http\\Middleware\\Authorize"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "resources\/{resource}\/{resourceId}\/replicate",
+            "name": "nova.pages.replicate",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\ResourceReplicateController",
+            "middleware": [
+                "nova",
+                "Laravel\\Nova\\Http\\Middleware\\Authenticate",
+                "Laravel\\Nova\\Http\\Middleware\\Authorize"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "resources\/{resource}\/lens\/{lens}",
+            "name": "nova.pages.lens",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\LensController",
+            "middleware": [
+                "nova",
+                "Laravel\\Nova\\Http\\Middleware\\Authenticate",
+                "Laravel\\Nova\\Http\\Middleware\\Authorize"
+            ],
+            "parameters": [
+                "resource",
+                "lens"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "resources\/{resource}\/{resourceId}\/attach\/{relatedResource}",
+            "name": "nova.pages.attach",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\AttachableController",
+            "middleware": [
+                "nova",
+                "Laravel\\Nova\\Http\\Middleware\\Authenticate",
+                "Laravel\\Nova\\Http\\Middleware\\Authorize"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId",
+                "relatedResource"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "resources\/{resource}\/{resourceId}\/edit-attached\/{relatedResource}\/{relatedResourceId}",
+            "name": "nova.pages.edit-attached",
+            "action": "Laravel\\Nova\\Http\\Controllers\\Pages\\AttachedResourceUpdateController",
+            "middleware": [
+                "nova",
+                "Laravel\\Nova\\Http\\Middleware\\Authenticate",
+                "Laravel\\Nova\\Http\\Middleware\\Authorize"
+            ],
+            "parameters": [
+                "resource",
+                "resourceId",
+                "relatedResource",
+                "relatedResourceId"
+            ],
+            "controller_methods": []
+        },
+        {
+            "uri": "api\/user",
+            "name": null,
+            "action": "Closure",
+            "middleware": [
+                "api",
+                "auth:sanctum"
+            ],
+            "parameters": [],
+            "controller_methods": []
+        },
+        {
+            "uri": "api\/assistants",
+            "name": "assistants.index",
+            "action": "App\\Http\\Controllers\\AssistantController@index",
+            "middleware": [
+                "api",
+                "auth:sanctum"
+            ],
+            "parameters": [],
+            "controller_methods": [
+                "index",
+                "store",
+                "show",
+                "update",
+                "destroy"
+            ]
+        },
+        {
+            "uri": "api\/assistants",
+            "name": "assistants.store",
+            "action": "App\\Http\\Controllers\\AssistantController@store",
+            "middleware": [
+                "api",
+                "auth:sanctum"
+            ],
+            "parameters": [],
+            "controller_methods": [
+                "index",
+                "store",
+                "show",
+                "update",
+                "destroy"
+            ]
+        },
+        {
+            "uri": "api\/assistants\/{assistant}",
+            "name": "assistants.show",
+            "action": "App\\Http\\Controllers\\AssistantController@show",
+            "middleware": [
+                "api",
+                "auth:sanctum"
+            ],
+            "parameters": [
+                "assistant"
+            ],
+            "controller_methods": [
+                "index",
+                "store",
+                "show",
+                "update",
+                "destroy"
+            ]
+        },
+        {
+            "uri": "api\/assistants\/{assistant}",
+            "name": "assistants.update",
+            "action": "App\\Http\\Controllers\\AssistantController@update",
+            "middleware": [
+                "api",
+                "auth:sanctum"
+            ],
+            "parameters": [
+                "assistant"
+            ],
+            "controller_methods": [
+                "index",
+                "store",
+                "show",
+                "update",
+                "destroy"
+            ]
+        },
+        {
+            "uri": "api\/assistants\/{assistant}",
+            "name": "assistants.destroy",
+            "action": "App\\Http\\Controllers\\AssistantController@destroy",
+            "middleware": [
+                "api",
+                "auth:sanctum"
+            ],
+            "parameters": [
+                "assistant"
+            ],
+            "controller_methods": [
+                "index",
+                "store",
+                "show",
+                "update",
+                "destroy"
+            ]
+        },
+        {
+            "uri": "api\/threads",
+            "name": "threads.index",
+            "action": "App\\Http\\Controllers\\ThreadController@index",
+            "middleware": [
+                "api",
+                "auth:sanctum"
+            ],
+            "parameters": [],
+            "controller_methods": [
+                "index",
+                "create",
+                "store",
+                "show",
+                "edit",
+                "update",
+                "destroy"
+            ]
+        },
+        {
+            "uri": "api\/threads",
+            "name": "threads.store",
+            "action": "App\\Http\\Controllers\\ThreadController@store",
+            "middleware": [
+                "api",
+                "auth:sanctum"
+            ],
+            "parameters": [],
+            "controller_methods": [
+                "index",
+                "create",
+                "store",
+                "show",
+                "edit",
+                "update",
+                "destroy"
+            ]
+        },
+        {
+            "uri": "api\/threads\/{thread}",
+            "name": "threads.show",
+            "action": "App\\Http\\Controllers\\ThreadController@show",
+            "middleware": [
+                "api",
+                "auth:sanctum"
+            ],
+            "parameters": [
+                "thread"
+            ],
+            "controller_methods": [
+                "index",
+                "create",
+                "store",
+                "show",
+                "edit",
+                "update",
+                "destroy"
+            ]
+        },
+        {
+            "uri": "api\/threads\/{thread}",
+            "name": "threads.update",
+            "action": "App\\Http\\Controllers\\ThreadController@update",
+            "middleware": [
+                "api",
+                "auth:sanctum"
+            ],
+            "parameters": [
+                "thread"
+            ],
+            "controller_methods": [
+                "index",
+                "create",
+                "store",
+                "show",
+                "edit",
+                "update",
+                "destroy"
+            ]
+        },
+        {
+            "uri": "api\/threads\/{thread}",
+            "name": "threads.destroy",
+            "action": "App\\Http\\Controllers\\ThreadController@destroy",
+            "middleware": [
+                "api",
+                "auth:sanctum"
+            ],
+            "parameters": [
+                "thread"
+            ],
+            "controller_methods": [
+                "index",
+                "create",
+                "store",
+                "show",
+                "edit",
+                "update",
+                "destroy"
+            ]
+        },
+        {
+            "uri": "up",
+            "name": null,
+            "action": "Closure",
+            "middleware": [
+                "web"
+            ],
+            "parameters": [],
+            "controller_methods": []
+        },
+        {
+            "uri": "redirect-to-login",
+            "name": "login",
+            "action": "Closure",
+            "middleware": [
+                "web"
+            ],
+            "parameters": [],
+            "controller_methods": []
+        },
+        {
+            "uri": "nova-vendor\/recent-messages\/create-message\/{thread}",
+            "name": null,
+            "action": "Closure",
+            "middleware": [
+                "nova"
+            ],
+            "parameters": [
+                "thread"
+            ],
+            "controller_methods": []
+        }
+    ],
+    "config": {
+        "app": {
+            "name": "Laravel",
+            "env": "local",
+            "debug": true,
+            "url": "http:\/\/worker-api.test",
+            "frontend_url": "http:\/\/localhost:3000",
+            "asset_url": null,
+            "timezone": "UTC",
+            "locale": "en",
+            "fallback_locale": "en",
+            "faker_locale": "en_US",
+            "cipher": "AES-256-CBC",
+            "key": "base64:YkkEsC9Av5AGMS\/fKZq4utNq6i9Ii8KrosT11fCoPdI=",
+            "previous_keys": [],
+            "maintenance": {
+                "driver": "file",
+                "store": "database"
+            },
+            "providers": [
+                "Illuminate\\Auth\\AuthServiceProvider",
+                "Illuminate\\Broadcasting\\BroadcastServiceProvider",
+                "Illuminate\\Bus\\BusServiceProvider",
+                "Illuminate\\Cache\\CacheServiceProvider",
+                "Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider",
+                "Illuminate\\Cookie\\CookieServiceProvider",
+                "Illuminate\\Database\\DatabaseServiceProvider",
+                "Illuminate\\Encryption\\EncryptionServiceProvider",
+                "Illuminate\\Filesystem\\FilesystemServiceProvider",
+                "Illuminate\\Foundation\\Providers\\FoundationServiceProvider",
+                "Illuminate\\Hashing\\HashServiceProvider",
+                "Illuminate\\Mail\\MailServiceProvider",
+                "Illuminate\\Notifications\\NotificationServiceProvider",
+                "Illuminate\\Pagination\\PaginationServiceProvider",
+                "Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider",
+                "Illuminate\\Pipeline\\PipelineServiceProvider",
+                "Illuminate\\Queue\\QueueServiceProvider",
+                "Illuminate\\Redis\\RedisServiceProvider",
+                "Illuminate\\Session\\SessionServiceProvider",
+                "Illuminate\\Translation\\TranslationServiceProvider",
+                "Illuminate\\Validation\\ValidationServiceProvider",
+                "Illuminate\\View\\ViewServiceProvider",
+                "App\\Providers\\AppServiceProvider",
+                "App\\Providers\\NovaServiceProvider"
+            ],
+            "aliases": {
+                "App": "Illuminate\\Support\\Facades\\App",
+                "Arr": "Illuminate\\Support\\Arr",
+                "Artisan": "Illuminate\\Support\\Facades\\Artisan",
+                "Auth": "Illuminate\\Support\\Facades\\Auth",
+                "Blade": "Illuminate\\Support\\Facades\\Blade",
+                "Broadcast": "Illuminate\\Support\\Facades\\Broadcast",
+                "Bus": "Illuminate\\Support\\Facades\\Bus",
+                "Cache": "Illuminate\\Support\\Facades\\Cache",
+                "Config": "Illuminate\\Support\\Facades\\Config",
+                "Context": "Illuminate\\Support\\Facades\\Context",
+                "Cookie": "Illuminate\\Support\\Facades\\Cookie",
+                "Crypt": "Illuminate\\Support\\Facades\\Crypt",
+                "Date": "Illuminate\\Support\\Facades\\Date",
+                "DB": "Illuminate\\Support\\Facades\\DB",
+                "Eloquent": "Illuminate\\Database\\Eloquent\\Model",
+                "Event": "Illuminate\\Support\\Facades\\Event",
+                "File": "Illuminate\\Support\\Facades\\File",
+                "Gate": "Illuminate\\Support\\Facades\\Gate",
+                "Hash": "Illuminate\\Support\\Facades\\Hash",
+                "Http": "Illuminate\\Support\\Facades\\Http",
+                "Js": "Illuminate\\Support\\Js",
+                "Lang": "Illuminate\\Support\\Facades\\Lang",
+                "Log": "Illuminate\\Support\\Facades\\Log",
+                "Mail": "Illuminate\\Support\\Facades\\Mail",
+                "Notification": "Illuminate\\Support\\Facades\\Notification",
+                "Number": "Illuminate\\Support\\Number",
+                "Password": "Illuminate\\Support\\Facades\\Password",
+                "Process": "Illuminate\\Support\\Facades\\Process",
+                "Queue": "Illuminate\\Support\\Facades\\Queue",
+                "RateLimiter": "Illuminate\\Support\\Facades\\RateLimiter",
+                "Redirect": "Illuminate\\Support\\Facades\\Redirect",
+                "Request": "Illuminate\\Support\\Facades\\Request",
+                "Response": "Illuminate\\Support\\Facades\\Response",
+                "Route": "Illuminate\\Support\\Facades\\Route",
+                "Schedule": "Illuminate\\Support\\Facades\\Schedule",
+                "Schema": "Illuminate\\Support\\Facades\\Schema",
+                "Session": "Illuminate\\Support\\Facades\\Session",
+                "Storage": "Illuminate\\Support\\Facades\\Storage",
+                "Str": "Illuminate\\Support\\Str",
+                "URL": "Illuminate\\Support\\Facades\\URL",
+                "Validator": "Illuminate\\Support\\Facades\\Validator",
+                "View": "Illuminate\\Support\\Facades\\View",
+                "Vite": "Illuminate\\Support\\Facades\\Vite"
+            }
+        },
+        "auth": {
+            "defaults": {
+                "guard": "web",
+                "passwords": "users"
+            },
+            "guards": {
+                "web": {
+                    "driver": "session",
+                    "provider": "users"
+                },
+                "sanctum": {
+                    "driver": "sanctum",
+                    "provider": null
+                }
+            },
+            "providers": {
+                "users": {
+                    "driver": "eloquent",
+                    "model": "App\\Models\\User"
+                }
+            },
+            "passwords": {
+                "users": {
+                    "provider": "users",
+                    "table": "password_reset_tokens",
+                    "expire": 60,
+                    "throttle": 60
+                }
+            },
+            "password_timeout": 10800
+        },
+        "cache": {
+            "default": "database",
+            "stores": {
+                "array": {
+                    "driver": "array",
+                    "serialize": false
+                },
+                "database": {
+                    "driver": "database",
+                    "table": "cache",
+                    "connection": null,
+                    "lock_connection": null
+                },
+                "file": {
+                    "driver": "file",
+                    "path": "\/Users\/jordanpartridge\/Sites\/Worker-Api\/storage\/framework\/cache\/data",
+                    "lock_path": "\/Users\/jordanpartridge\/Sites\/Worker-Api\/storage\/framework\/cache\/data"
+                },
+                "memcached": {
+                    "driver": "memcached",
+                    "persistent_id": null,
+                    "sasl": [
+                        null,
+                        null
+                    ],
+                    "options": [],
+                    "servers": [
+                        {
+                            "host": "127.0.0.1",
+                            "port": 11211,
+                            "weight": 100
+                        }
+                    ]
+                },
+                "redis": {
+                    "driver": "redis",
+                    "connection": "cache",
+                    "lock_connection": "default"
+                },
+                "dynamodb": {
+                    "driver": "dynamodb",
+                    "key": "",
+                    "secret": "",
+                    "region": "us-east-1",
+                    "table": "cache",
+                    "endpoint": null
+                },
+                "octane": {
+                    "driver": "octane"
+                }
+            },
+            "prefix": ""
+        },
+        "database": {
+            "default": "mysql",
+            "connections": {
+                "sqlite": {
+                    "driver": "sqlite",
+                    "url": null,
+                    "database": "worker_api",
+                    "prefix": "",
+                    "foreign_key_constraints": true
+                },
+                "mysql": {
+                    "driver": "mysql",
+                    "url": null,
+                    "host": "127.0.0.1",
+                    "port": "3306",
+                    "database": "worker_api",
+                    "username": "root",
+                    "password": "",
+                    "unix_socket": "",
+                    "charset": "utf8mb4",
+                    "collation": "utf8mb4_unicode_ci",
+                    "prefix": "",
+                    "prefix_indexes": true,
+                    "strict": true,
+                    "engine": null,
+                    "options": []
+                },
+                "mariadb": {
+                    "driver": "mariadb",
+                    "url": null,
+                    "host": "127.0.0.1",
+                    "port": "3306",
+                    "database": "worker_api",
+                    "username": "root",
+                    "password": "",
+                    "unix_socket": "",
+                    "charset": "utf8mb4",
+                    "collation": "utf8mb4_unicode_ci",
+                    "prefix": "",
+                    "prefix_indexes": true,
+                    "strict": true,
+                    "engine": null,
+                    "options": []
+                },
+                "pgsql": {
+                    "driver": "pgsql",
+                    "url": null,
+                    "host": "127.0.0.1",
+                    "port": "3306",
+                    "database": "worker_api",
+                    "username": "root",
+                    "password": "",
+                    "charset": "utf8",
+                    "prefix": "",
+                    "prefix_indexes": true,
+                    "search_path": "public",
+                    "sslmode": "prefer"
+                },
+                "sqlsrv": {
+                    "driver": "sqlsrv",
+                    "url": null,
+                    "host": "127.0.0.1",
+                    "port": "3306",
+                    "database": "worker_api",
+                    "username": "root",
+                    "password": "",
+                    "charset": "utf8",
+                    "prefix": "",
+                    "prefix_indexes": true
+                }
+            },
+            "migrations": {
+                "table": "migrations",
+                "update_date_on_publish": true
+            },
+            "redis": {
+                "client": "phpredis",
+                "options": {
+                    "cluster": "redis",
+                    "prefix": "laravel_database_"
+                },
+                "default": {
+                    "url": null,
+                    "host": "127.0.0.1",
+                    "username": null,
+                    "password": null,
+                    "port": "6379",
+                    "database": "0"
+                },
+                "cache": {
+                    "url": null,
+                    "host": "127.0.0.1",
+                    "username": null,
+                    "password": null,
+                    "port": "6379",
+                    "database": "1"
+                }
+            }
+        },
+        "filesystems": {
+            "default": "local",
+            "disks": {
+                "local": {
+                    "driver": "local",
+                    "root": "\/Users\/jordanpartridge\/Sites\/Worker-Api\/storage\/app",
+                    "throw": false
+                },
+                "public": {
+                    "driver": "local",
+                    "root": "\/Users\/jordanpartridge\/Sites\/Worker-Api\/storage\/app\/public",
+                    "url": "http:\/\/worker-api.test\/storage",
+                    "visibility": "public",
+                    "throw": false
+                },
+                "s3": {
+                    "driver": "s3",
+                    "key": "",
+                    "secret": "",
+                    "region": "us-east-1",
+                    "bucket": "",
+                    "url": null,
+                    "endpoint": null,
+                    "use_path_style_endpoint": false,
+                    "throw": false
+                }
+            },
+            "links": {
+                "\/Users\/jordanpartridge\/Sites\/Worker-Api\/public\/storage": "\/Users\/jordanpartridge\/Sites\/Worker-Api\/storage\/app\/public"
+            }
+        },
+        "flare": {
+            "key": null,
+            "flare_middleware": {
+                "0": "Spatie\\FlareClient\\FlareMiddleware\\RemoveRequestIp",
+                "1": "Spatie\\FlareClient\\FlareMiddleware\\AddGitInformation",
+                "2": "Spatie\\LaravelIgnition\\FlareMiddleware\\AddNotifierName",
+                "3": "Spatie\\LaravelIgnition\\FlareMiddleware\\AddEnvironmentInformation",
+                "4": "Spatie\\LaravelIgnition\\FlareMiddleware\\AddExceptionInformation",
+                "5": "Spatie\\LaravelIgnition\\FlareMiddleware\\AddDumps",
+                "Spatie\\LaravelIgnition\\FlareMiddleware\\AddLogs": {
+                    "maximum_number_of_collected_logs": 200
+                },
+                "Spatie\\LaravelIgnition\\FlareMiddleware\\AddQueries": {
+                    "maximum_number_of_collected_queries": 200,
+                    "report_query_bindings": true
+                },
+                "Spatie\\LaravelIgnition\\FlareMiddleware\\AddJobs": {
+                    "max_chained_job_reporting_depth": 5
+                },
+                "Spatie\\FlareClient\\FlareMiddleware\\CensorRequestBodyFields": {
+                    "censor_fields": [
+                        "password",
+                        "password_confirmation"
+                    ]
+                },
+                "Spatie\\FlareClient\\FlareMiddleware\\CensorRequestHeaders": {
+                    "headers": [
+                        "API-KEY",
+                        "Authorization",
+                        "Cookie",
+                        "Set-Cookie",
+                        "X-CSRF-TOKEN",
+                        "X-XSRF-TOKEN"
+                    ]
+                }
+            },
+            "send_logs_as_events": true
+        },
+        "ignition": {
+            "editor": "phpstorm",
+            "theme": "auto",
+            "enable_share_button": true,
+            "register_commands": false,
+            "solution_providers": [
+                "Spatie\\Ignition\\Solutions\\SolutionProviders\\BadMethodCallSolutionProvider",
+                "Spatie\\Ignition\\Solutions\\SolutionProviders\\MergeConflictSolutionProvider",
+                "Spatie\\Ignition\\Solutions\\SolutionProviders\\UndefinedPropertySolutionProvider",
+                "Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\IncorrectValetDbCredentialsSolutionProvider",
+                "Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\MissingAppKeySolutionProvider",
+                "Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\DefaultDbNameSolutionProvider",
+                "Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\TableNotFoundSolutionProvider",
+                "Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\MissingImportSolutionProvider",
+                "Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\InvalidRouteActionSolutionProvider",
+                "Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\ViewNotFoundSolutionProvider",
+                "Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\RunningLaravelDuskInProductionProvider",
+                "Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\MissingColumnSolutionProvider",
+                "Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\UnknownValidationSolutionProvider",
+                "Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\MissingMixManifestSolutionProvider",
+                "Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\MissingViteManifestSolutionProvider",
+                "Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\MissingLivewireComponentSolutionProvider",
+                "Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\UndefinedViewVariableSolutionProvider",
+                "Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\GenericLaravelExceptionSolutionProvider",
+                "Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\OpenAiSolutionProvider",
+                "Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\SailNetworkSolutionProvider"
+            ],
+            "ignored_solution_providers": [],
+            "enable_runnable_solutions": null,
+            "remote_sites_path": "\/Users\/jordanpartridge\/Sites\/Worker-Api",
+            "local_sites_path": "",
+            "housekeeping_endpoint_prefix": "_ignition",
+            "settings_file_path": "",
+            "recorders": [
+                "Spatie\\LaravelIgnition\\Recorders\\DumpRecorder\\DumpRecorder",
+                "Spatie\\LaravelIgnition\\Recorders\\JobRecorder\\JobRecorder",
+                "Spatie\\LaravelIgnition\\Recorders\\LogRecorder\\LogRecorder",
+                "Spatie\\LaravelIgnition\\Recorders\\QueryRecorder\\QueryRecorder"
+            ],
+            "open_ai_key": null,
+            "with_stack_frame_arguments": true,
+            "argument_reducers": [
+                "Spatie\\Backtrace\\Arguments\\Reducers\\BaseTypeArgumentReducer",
+                "Spatie\\Backtrace\\Arguments\\Reducers\\ArrayArgumentReducer",
+                "Spatie\\Backtrace\\Arguments\\Reducers\\StdClassArgumentReducer",
+                "Spatie\\Backtrace\\Arguments\\Reducers\\EnumArgumentReducer",
+                "Spatie\\Backtrace\\Arguments\\Reducers\\ClosureArgumentReducer",
+                "Spatie\\Backtrace\\Arguments\\Reducers\\DateTimeArgumentReducer",
+                "Spatie\\Backtrace\\Arguments\\Reducers\\DateTimeZoneArgumentReducer",
+                "Spatie\\Backtrace\\Arguments\\Reducers\\SymphonyRequestArgumentReducer",
+                "Spatie\\LaravelIgnition\\ArgumentReducers\\ModelArgumentReducer",
+                "Spatie\\LaravelIgnition\\ArgumentReducers\\CollectionArgumentReducer",
+                "Spatie\\Backtrace\\Arguments\\Reducers\\StringableArgumentReducer"
+            ]
+        },
+        "inertia": {
+            "ssr": {
+                "enabled": true,
+                "url": "http:\/\/127.0.0.1:13714"
+            },
+            "testing": {
+                "ensure_pages_exist": true,
+                "page_paths": [
+                    "\/Users\/jordanpartridge\/Sites\/Worker-Api\/resources\/js\/Pages"
+                ],
+                "page_extensions": [
+                    "js",
+                    "jsx",
+                    "svelte",
+                    "ts",
+                    "tsx",
+                    "vue"
+                ]
+            }
+        },
+        "laravel-console-summary": {
+            "hide": [
+                "list"
+            ],
+            "binary": null
+        },
+        "logging": {
+            "default": "stack",
+            "deprecations": {
+                "channel": null,
+                "trace": false
+            },
+            "channels": {
+                "stack": {
+                    "driver": "stack",
+                    "channels": [
+                        "single"
+                    ],
+                    "ignore_exceptions": false
+                },
+                "single": {
+                    "driver": "single",
+                    "path": "\/Users\/jordanpartridge\/Sites\/Worker-Api\/storage\/logs\/laravel.log",
+                    "level": "debug",
+                    "replace_placeholders": true
+                },
+                "daily": {
+                    "driver": "daily",
+                    "path": "\/Users\/jordanpartridge\/Sites\/Worker-Api\/storage\/logs\/laravel.log",
+                    "level": "debug",
+                    "days": 14,
+                    "replace_placeholders": true
+                },
+                "slack": {
+                    "driver": "slack",
+                    "url": null,
+                    "username": "Laravel Log",
+                    "emoji": ":boom:",
+                    "level": "debug",
+                    "replace_placeholders": true
+                },
+                "papertrail": {
+                    "driver": "monolog",
+                    "level": "debug",
+                    "handler": "Monolog\\Handler\\SyslogUdpHandler",
+                    "handler_with": {
+                        "host": null,
+                        "port": null,
+                        "connectionString": "tls:\/\/:"
+                    },
+                    "processors": [
+                        "Monolog\\Processor\\PsrLogMessageProcessor"
+                    ]
+                },
+                "stderr": {
+                    "driver": "monolog",
+                    "level": "debug",
+                    "handler": "Monolog\\Handler\\StreamHandler",
+                    "formatter": null,
+                    "with": {
+                        "stream": "php:\/\/stderr"
+                    },
+                    "processors": [
+                        "Monolog\\Processor\\PsrLogMessageProcessor"
+                    ]
+                },
+                "syslog": {
+                    "driver": "syslog",
+                    "level": "debug",
+                    "facility": 8,
+                    "replace_placeholders": true
+                },
+                "errorlog": {
+                    "driver": "errorlog",
+                    "level": "debug",
+                    "replace_placeholders": true
+                },
+                "null": {
+                    "driver": "monolog",
+                    "handler": "Monolog\\Handler\\NullHandler"
+                },
+                "emergency": {
+                    "path": "\/Users\/jordanpartridge\/Sites\/Worker-Api\/storage\/logs\/laravel.log"
+                }
+            }
+        },
+        "login-link": {
+            "allowed_environments": [
+                "local"
+            ],
+            "automatically_create_missing_users": true,
+            "user_model": null,
+            "redirect_route_name": null,
+            "login_link_controller": "Spatie\\LoginLink\\Http\\Controllers\\LoginLinkController",
+            "middleware": [
+                "web"
+            ]
+        },
+        "mail": {
+            "default": "smtp",
+            "mailers": {
+                "smtp": {
+                    "transport": "smtp",
+                    "url": null,
+                    "host": "127.0.0.1",
+                    "port": "2525",
+                    "encryption": "tls",
+                    "username": "Laravel",
+                    "password": null,
+                    "timeout": null,
+                    "local_domain": null
+                },
+                "ses": {
+                    "transport": "ses"
+                },
+                "postmark": {
+                    "transport": "postmark"
+                },
+                "resend": {
+                    "transport": "resend"
+                },
+                "sendmail": {
+                    "transport": "sendmail",
+                    "path": "\/usr\/sbin\/sendmail -bs -i"
+                },
+                "log": {
+                    "transport": "log",
+                    "channel": null
+                },
+                "array": {
+                    "transport": "array"
+                },
+                "failover": {
+                    "transport": "failover",
+                    "mailers": [
+                        "smtp",
+                        "log"
+                    ]
+                }
+            },
+            "from": {
+                "address": "hello@example.com",
+                "name": "Example"
+            },
+            "markdown": {
+                "theme": "default",
+                "paths": [
+                    "\/Users\/jordanpartridge\/Sites\/Worker-Api\/resources\/views\/vendor\/mail"
+                ]
+            }
+        },
+        "nova": {
+            "license_key": null,
+            "name": "Laravel",
+            "domain": null,
+            "path": "\/",
+            "guard": null,
+            "passwords": null,
+            "middleware": [
+                "web",
+                "Laravel\\Nova\\Http\\Middleware\\HandleInertiaRequests",
+                "Laravel\\Nova\\Http\\Middleware\\DispatchServingNovaEvent",
+                "Laravel\\Nova\\Http\\Middleware\\BootTools"
+            ],
+            "api_middleware": [
+                "nova",
+                "Laravel\\Nova\\Http\\Middleware\\Authenticate",
+                "Laravel\\Nova\\Http\\Middleware\\Authorize"
+            ],
+            "pagination": "simple",
+            "storage_disk": "public",
+            "currency": "USD",
+            "actions": {
+                "resource": "Laravel\\Nova\\Actions\\ActionResource"
+            },
+            "impersonation": {
+                "started": "\/",
+                "stopped": "\/"
+            }
+        },
+        "openai": {
+            "api_key": "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",
+            "organization": "",
+            "request_timeout": 30
+        },
+        "queue": {
+            "default": "database",
+            "connections": {
+                "sync": {
+                    "driver": "sync"
+                },
+                "database": {
+                    "driver": "database",
+                    "connection": null,
+                    "table": "jobs",
+                    "queue": "default",
+                    "retry_after": 90,
+                    "after_commit": false
+                },
+                "beanstalkd": {
+                    "driver": "beanstalkd",
+                    "host": "localhost",
+                    "queue": "default",
+                    "retry_after": 90,
+                    "block_for": 0,
+                    "after_commit": false
+                },
+                "sqs": {
+                    "driver": "sqs",
+                    "key": "",
+                    "secret": "",
+                    "prefix": "https:\/\/sqs.us-east-1.amazonaws.com\/your-account-id",
+                    "queue": "default",
+                    "suffix": null,
+                    "region": "us-east-1",
+                    "after_commit": false
+                },
+                "redis": {
+                    "driver": "redis",
+                    "connection": "default",
+                    "queue": "default",
+                    "retry_after": 90,
+                    "block_for": null,
+                    "after_commit": false
+                }
+            },
+            "batching": {
+                "database": "mysql",
+                "table": "job_batches"
+            },
+            "failed": {
+                "driver": "database-uuids",
+                "database": "mysql",
+                "table": "failed_jobs"
+            }
+        },
+        "sanctum": {
+            "stateful": [
+                "localhost",
+                "localhost:3000",
+                "127.0.0.1",
+                "127.0.0.1:8000",
+                "::1",
+                "worker-api.test"
+            ],
+            "guard": [
+                "web"
+            ],
+            "expiration": null,
+            "token_prefix": "",
+            "middleware": {
+                "authenticate_session": "Laravel\\Sanctum\\Http\\Middleware\\AuthenticateSession",
+                "encrypt_cookies": "Illuminate\\Cookie\\Middleware\\EncryptCookies",
+                "validate_csrf_token": "Illuminate\\Foundation\\Http\\Middleware\\ValidateCsrfToken"
+            }
+        },
+        "services": {
+            "postmark": {
+                "token": null
+            },
+            "ses": {
+                "key": "",
+                "secret": "",
+                "region": "us-east-1"
+            },
+            "slack": {
+                "notifications": {
+                    "bot_user_oauth_token": null,
+                    "channel": null
+                }
+            }
+        },
+        "session": {
+            "driver": "database",
+            "lifetime": "120",
+            "expire_on_close": false,
+            "encrypt": false,
+            "files": "\/Users\/jordanpartridge\/Sites\/Worker-Api\/storage\/framework\/sessions",
+            "connection": null,
+            "table": "sessions",
+            "store": null,
+            "lottery": [
+                2,
+                100
+            ],
+            "cookie": "laravel_session",
+            "path": "\/",
+            "domain": null,
+            "secure": null,
+            "http_only": true,
+            "same_site": "lax",
+            "partitioned": false
+        },
+        "tinker": {
+            "commands": [],
+            "alias": [],
+            "dont_alias": [
+                "App\\Nova"
+            ]
+        },
+        "hashing": {
+            "driver": "bcrypt",
+            "bcrypt": {
+                "rounds": "12",
+                "verify": true
+            },
+            "argon": {
+                "memory": 65536,
+                "threads": 1,
+                "time": 4,
+                "verify": true
+            },
+            "rehash_on_login": true
+        },
+        "broadcasting": {
+            "default": "log",
+            "connections": {
+                "reverb": {
+                    "driver": "reverb",
+                    "key": null,
+                    "secret": null,
+                    "app_id": null,
+                    "options": {
+                        "host": null,
+                        "port": 443,
+                        "scheme": "https",
+                        "useTLS": true
+                    },
+                    "client_options": []
+                },
+                "pusher": {
+                    "driver": "pusher",
+                    "key": null,
+                    "secret": null,
+                    "app_id": null,
+                    "options": {
+                        "cluster": null,
+                        "host": "api-mt1.pusher.com",
+                        "port": 443,
+                        "scheme": "https",
+                        "encrypted": true,
+                        "useTLS": true
+                    },
+                    "client_options": []
+                },
+                "ably": {
+                    "driver": "ably",
+                    "key": null
+                },
+                "log": {
+                    "driver": "log"
+                },
+                "null": {
+                    "driver": "null"
+                }
+            }
+        },
+        "view": {
+            "paths": [
+                "\/Users\/jordanpartridge\/Sites\/Worker-Api\/resources\/views"
+            ],
+            "compiled": "\/Users\/jordanpartridge\/Sites\/Worker-Api\/storage\/framework\/views"
+        },
+        "cors": {
+            "paths": [
+                "api\/*",
+                "sanctum\/csrf-cookie"
+            ],
+            "allowed_methods": [
+                "*"
+            ],
+            "allowed_origins": [
+                "*"
+            ],
+            "allowed_origins_patterns": [],
+            "allowed_headers": [
+                "*"
+            ],
+            "exposed_headers": [],
+            "max_age": 0,
+            "supports_credentials": false
+        },
+        "activitylog": {
+            "enabled": true,
+            "delete_records_older_than_days": 365,
+            "default_log_name": "default",
+            "default_auth_driver": null,
+            "subject_returns_soft_deleted_models": false,
+            "activity_model": "Spatie\\Activitylog\\Models\\Activity",
+            "table_name": "activity_log",
+            "database_connection": null
+        },
+        "nova-activitylog": {
+            "resource": "Bolechen\\NovaActivitylog\\Resources\\Activitylog"
+        }
+    }
+}
