@@ -96,8 +96,8 @@
             "url": "./nova-components/AskAgent"
         },
         "1": {
-            "type": "vcs",
-            "url": "https://github.com/Partridge-Rocks/recent-messages.git"
+            "type": "path",
+            "url": "./nova-components/RecentMessages"
         }
     }
 }
