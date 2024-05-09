@@ -1938,7 +1938,7 @@
                 "dynamodb": {
                     "driver": "dynamodb",
                     "key": "",
-                    "secret": "",
+                    "secret": "********",
                     "region": "us-east-1",
                     "table": "cache",
                     "endpoint": null
@@ -2066,7 +2066,7 @@
                 "s3": {
                     "driver": "s3",
                     "key": "",
-                    "secret": "",
+                    "secret": "********",
                     "region": "us-east-1",
                     "bucket": "",
                     "url": null,
@@ -2373,7 +2373,7 @@
             }
         },
         "openai": {
-            "api_key": "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",
+            "api_key": "********",
             "organization": "",
             "request_timeout": 30
         },
@@ -2402,7 +2402,7 @@
                 "sqs": {
                     "driver": "sqs",
                     "key": "",
-                    "secret": "",
+                    "secret": "********",
                     "prefix": "https:\/\/sqs.us-east-1.amazonaws.com\/your-account-id",
                     "queue": "default",
                     "suffix": null,
@@ -2454,7 +2454,7 @@
             },
             "ses": {
                 "key": "",
-                "secret": "",
+                "secret": "********",
                 "region": "us-east-1"
             },
             "slack": {
@@ -2512,7 +2512,7 @@
                 "reverb": {
                     "driver": "reverb",
                     "key": null,
-                    "secret": null,
+                    "secret": "********",
                     "app_id": null,
                     "options": {
                         "host": null,
@@ -2525,7 +2525,7 @@
                 "pusher": {
                     "driver": "pusher",
                     "key": null,
-                    "secret": null,
+                    "secret": "********",
                     "app_id": null,
                     "options": {
                         "cluster": null,
