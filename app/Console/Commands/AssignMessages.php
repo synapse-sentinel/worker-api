@@ -6,8 +6,6 @@ use App\Models\Message;
 use App\Services\AssistantService;
 use Illuminate\Console\Command;
 
-use function Laravel\Prompts\table;
-
 class AssignMessages extends Command
 {
     /**
@@ -27,16 +25,12 @@ class AssignMessages extends Command
     /**
      * Execute the console command.
      */
-    public function handle(AssistantService $assistantService)
+    public function handle(AssistantService $assistantService): void
     {
         $messageToAssign = Message::where('processed', false)->limit(10)->get();
         $this->info('Assigning '.$messageToAssign->count().' messages to Assistants...');
         $messageToAssign->each(function (Message $message) use ($assistantService) {
 
-            table([
-                ['Message', 'User', 'Thread'],
-                [$message->content, $message->user->name, $message->thread->name],
-            ]);
             $response = $assistantService->processMessage($message);
             $this->info('Response: '.json_encode($response));
             if (is_array($response) && array_key_exists('potential_assignees', $response) && $response['potential_assignees']) {
