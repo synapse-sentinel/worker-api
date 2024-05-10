@@ -4,7 +4,10 @@ namespace App\Providers;
 
 use App\Nova\Dashboards\Main;
 use Bolechen\NovaActivitylog\NovaActivitylog;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Laravel\Nova\Menu\Menu;
+use Laravel\Nova\Menu\MenuItem;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 
@@ -16,6 +19,26 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot(): void
     {
         parent::boot();
+
+        Nova::userMenu(function (Request $request, Menu $menu) {
+            $menu->append(
+                MenuItem::make('Pulse')
+                    ->path('/pulse')
+            );
+            $menu->append(
+                MenuItem::make('Horizon')
+                    ->path('/horizon')
+            );
+
+            $menu->prepend(
+                MenuItem::make(
+                    'My Profile',
+                    "/resources/users/{$request->user()->getKey()}"
+                )
+            );
+
+            return $menu;
+        });
     }
 
     /**

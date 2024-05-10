@@ -10,6 +10,7 @@ use App\Observers\AssistantObserver;
 use App\Observers\MessageObserver;
 use App\Observers\ThreadObserver;
 use App\Observers\UserObserver;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -31,5 +32,10 @@ class AppServiceProvider extends ServiceProvider
         User::observe(UserObserver::class);
         Thread::observe(ThreadObserver::class);
         Message::observe(MessageObserver::class);
+
+        Gate::define('viewPulse', function (User $user) {
+            return $user->email === 'jordan@partridge.rocks';
+        });
+
     }
 }
