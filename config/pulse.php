@@ -136,6 +136,8 @@ return [
         Recorders\CacheInteractions::class => [
             'enabled' => env('PULSE_CACHE_INTERACTIONS_ENABLED', true),
             'sample_rate' => env('PULSE_CACHE_INTERACTIONS_SAMPLE_RATE', 1),
+            \Denniseilander\LogFiles\Recorders\LogFiles::class => [],
+
             'ignore' => [
                 ...Pulse::defaultVendorCacheKeys(),
             ],

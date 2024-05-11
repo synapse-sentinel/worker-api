@@ -7,6 +7,9 @@
 
     <livewire:pulse.cache cols="4" />
 
+    <livewire:pulse.log-files cols="4" />
+
+
     <livewire:pulse.slow-queries cols="8" />
 
     <livewire:pulse.exceptions cols="6" />

@@ -10,6 +10,7 @@
     "require": {
         "php": "^8.2",
         "bolechen/nova-activitylog": "^0.4.3",
+        "denniseilander/pulse-log-files": "^0.2.0",
         "inertiajs/inertia-laravel": "^1.0",
         "laravel/framework": "^11.0",
         "laravel/horizon": "^5.24",
