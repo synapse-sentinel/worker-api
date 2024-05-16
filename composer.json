@@ -30,6 +30,7 @@
         "silber/bouncer": "^1.0",
         "spatie/laravel-activitylog": "^4.8",
         "spatie/laravel-login-link": "^1.2",
+        "stepanenko3/nova-settings": "^1.1",
         "synapse-sentinel/ask-agent": "@dev",
         "tightenco/ziggy": "^2.0"
     },
