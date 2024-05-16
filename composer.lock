@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fcc2e8f8c680959810db14ef966141b1",
+    "content-hash": "36b6a0d6961ec91b1efe9bb4617b429f",
     "packages": [
         {
             "name": "bolechen/nova-activitylog",
@@ -3866,7 +3866,7 @@
         },
         {
             "name": "partridge-rocks/recent-messages",
-            "version": "dev-main",
+            "version": "dev-feature/new-prompt-system",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/RecentMessages",
@@ -5314,6 +5314,61 @@
                 }
             ],
             "time": "2024-03-20T07:29:11+00:00"
+        },
+        {
+            "name": "stepanenko3/nova-settings",
+            "version": "v1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stepanenko3/nova-settings.git",
+                "reference": "cac3bda3b6b08af02323ab8bf0331f53c632dd82"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stepanenko3/nova-settings/zipball/cac3bda3b6b08af02323ab8bf0331f53c632dd82",
+                "reference": "cac3bda3b6b08af02323ab8bf0331f53c632dd82",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "^4.0",
+                "php": ">=8.0",
+                "spatie/laravel-activitylog": "^4.4.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.10",
+                "tightenco/duster": "^2.7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Stepanenko3\\NovaSettings\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Stepanenko3\\NovaSettings\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "This Laravel Nova settings tool based on env, using nativ nova fields and resources",
+            "keywords": [
+                "Settings",
+                "laravel",
+                "nova"
+            ],
+            "support": {
+                "issues": "https://github.com/stepanenko3/nova-settings/issues",
+                "source": "https://github.com/stepanenko3/nova-settings/tree/v1.1.2"
+            },
+            "time": "2024-03-31T19:56:05+00:00"
         },
         {
             "name": "symfony/clock",
@@ -7783,7 +7838,7 @@
         },
         {
             "name": "synapse-sentinel/ask-agent",
-            "version": "dev-main",
+            "version": "dev-feature/new-prompt-system",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/AskAgent",
