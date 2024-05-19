@@ -20,5 +20,5 @@ Schedule::call(function () {
 })->everyMinute();
 
 Schedule::call(function () {
-    Artisan::call('agent:reflect');
-})->hourly();
+    Artisan::call('embeddings:generate-app');
+})->daily();

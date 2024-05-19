@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Nova\Dashboards\Main;
-use Bolechen\NovaActivitylog\NovaActivitylog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Menu\Menu;
@@ -30,12 +29,14 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     ->path('/horizon')
             );
 
-            $menu->prepend(
-                MenuItem::make(
-                    'My Profile',
-                    "/resources/users/{$request->user()->getKey()}"
-                )
-            );
+            if ($request->user()) {
+                $menu->prepend(
+                    MenuItem::make(
+                        'My Profile',
+                        "/resources/users/{$request->user()->getKey()}"
+                    )
+                );
+            }
 
             return $menu;
         });
@@ -84,7 +85,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function tools(): array
     {
         return [
-            new NovaActivitylog(),
         ];
     }
 

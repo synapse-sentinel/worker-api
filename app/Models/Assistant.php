@@ -27,7 +27,14 @@ class Assistant extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['name', 'avatar', 'instructions', 'ai_model_id', 'provider_value', 'user_id'];
+    protected $fillable = [
+        'name',
+        'avatar',
+        'instructions',
+        'ai_model_id',
+        'provider_value',
+        'user_id',
+    ];
 
     /**
      * Get the aiModel that belongs to the Assistant
@@ -111,6 +118,9 @@ class Assistant extends Model
 
     public function processThread($thread): void
     {
+        if (! $thread) {
+            return;
+        }
         $messages = $thread->messages->select('role', 'content')->toArray();
         $threadRun = OpenAI::threads()->createAndRun(
             [

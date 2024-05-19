@@ -4,56 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "36b6a0d6961ec91b1efe9bb4617b429f",
+    "content-hash": "13ca0c2b95d776bfa6a2d1865884350e",
     "packages": [
-        {
-            "name": "bolechen/nova-activitylog",
-            "version": "v0.4.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bolechen/nova-activitylog.git",
-                "reference": "c354cc322d66893c55a4b8a57de1e11f9cf3e131"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bolechen/nova-activitylog/zipball/c354cc322d66893c55a4b8a57de1e11f9cf3e131",
-                "reference": "c354cc322d66893c55a4b8a57de1e11f9cf3e131",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/nova": "^4.0",
-                "spatie/laravel-activitylog": "^3.9|^4.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Bolechen\\NovaActivitylog\\ToolServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Bolechen\\NovaActivitylog\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "A tool to activity logger to monitor the users of your Laravel Nova.",
-            "keywords": [
-                "activity",
-                "laravel",
-                "log",
-                "nova"
-            ],
-            "support": {
-                "issues": "https://github.com/bolechen/nova-activitylog/issues",
-                "source": "https://github.com/bolechen/nova-activitylog/tree/v0.4.3"
-            },
-            "time": "2023-12-08T02:44:28+00:00"
-        },
         {
             "name": "brick/math",
             "version": "0.12.1",
@@ -1438,16 +1390,16 @@
         },
         {
             "name": "inertiajs/inertia-laravel",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/inertiajs/inertia-laravel.git",
-                "reference": "fcf3d6db1a259a55d8d18cf43fc971202c1f6b0d"
+                "reference": "576fba4da6f2ba6348ddf57a750c73231904d598"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/fcf3d6db1a259a55d8d18cf43fc971202c1f6b0d",
-                "reference": "fcf3d6db1a259a55d8d18cf43fc971202c1f6b0d",
+                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/576fba4da6f2ba6348ddf57a750c73231904d598",
+                "reference": "576fba4da6f2ba6348ddf57a750c73231904d598",
                 "shasum": ""
             },
             "require": {
@@ -1501,7 +1453,7 @@
             ],
             "support": {
                 "issues": "https://github.com/inertiajs/inertia-laravel/issues",
-                "source": "https://github.com/inertiajs/inertia-laravel/tree/v1.0.0"
+                "source": "https://github.com/inertiajs/inertia-laravel/tree/v1.1.0"
             },
             "funding": [
                 {
@@ -1509,7 +1461,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-09T00:30:58+00:00"
+            "time": "2024-05-16T01:41:06+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",
@@ -3773,16 +3725,16 @@
         },
         {
             "name": "openspout/openspout",
-            "version": "v4.23.1",
+            "version": "v4.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/openspout/openspout.git",
-                "reference": "912b2286bdea975b3b9f6b1a1021cc0adaade13e"
+                "reference": "51f2a627d4cdcdb06eb451c6f434daeb190c4afb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/openspout/openspout/zipball/912b2286bdea975b3b9f6b1a1021cc0adaade13e",
-                "reference": "912b2286bdea975b3b9f6b1a1021cc0adaade13e",
+                "url": "https://api.github.com/repos/openspout/openspout/zipball/51f2a627d4cdcdb06eb451c6f434daeb190c4afb",
+                "reference": "51f2a627d4cdcdb06eb451c6f434daeb190c4afb",
                 "shasum": ""
             },
             "require": {
@@ -3796,7 +3748,7 @@
             },
             "require-dev": {
                 "ext-zlib": "*",
-                "friendsofphp/php-cs-fixer": "^3.55.0",
+                "friendsofphp/php-cs-fixer": "^3.56.0",
                 "infection/infection": "^0.28.1",
                 "phpbench/phpbench": "^1.2.15",
                 "phpstan/phpstan": "^1.10.67",
@@ -3850,7 +3802,7 @@
             ],
             "support": {
                 "issues": "https://github.com/openspout/openspout/issues",
-                "source": "https://github.com/openspout/openspout/tree/v4.23.1"
+                "source": "https://github.com/openspout/openspout/tree/v4.24.0"
             },
             "funding": [
                 {
@@ -3862,7 +3814,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-05-06T07:22:51+00:00"
+            "time": "2024-05-10T09:06:16+00:00"
         },
         {
             "name": "partridge-rocks/recent-messages",
@@ -4364,20 +4316,20 @@
         },
         {
             "name": "psr/http-factory",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-factory.git",
-                "reference": "e616d01114759c4c489f93b099585439f795fe35"
+                "reference": "2b4765fddfe3b508ac62f829e852b1501d3f6e8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/e616d01114759c4c489f93b099585439f795fe35",
-                "reference": "e616d01114759c4c489f93b099585439f795fe35",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/2b4765fddfe3b508ac62f829e852b1501d3f6e8a",
+                "reference": "2b4765fddfe3b508ac62f829e852b1501d3f6e8a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.0.0",
+                "php": ">=7.1",
                 "psr/http-message": "^1.0 || ^2.0"
             },
             "type": "library",
@@ -4401,7 +4353,7 @@
                     "homepage": "https://www.php-fig.org/"
                 }
             ],
-            "description": "Common interfaces for PSR-7 HTTP message factories",
+            "description": "PSR-17: Common interfaces for PSR-7 HTTP message factories",
             "keywords": [
                 "factory",
                 "http",
@@ -4413,9 +4365,9 @@
                 "response"
             ],
             "support": {
-                "source": "https://github.com/php-fig/http-factory/tree/1.0.2"
+                "source": "https://github.com/php-fig/http-factory"
             },
-            "time": "2023-04-10T20:10:41+00:00"
+            "time": "2024-04-15T12:06:14+00:00"
         },
         {
             "name": "psr/http-message",
@@ -5314,61 +5266,6 @@
                 }
             ],
             "time": "2024-03-20T07:29:11+00:00"
-        },
-        {
-            "name": "stepanenko3/nova-settings",
-            "version": "v1.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/stepanenko3/nova-settings.git",
-                "reference": "cac3bda3b6b08af02323ab8bf0331f53c632dd82"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/stepanenko3/nova-settings/zipball/cac3bda3b6b08af02323ab8bf0331f53c632dd82",
-                "reference": "cac3bda3b6b08af02323ab8bf0331f53c632dd82",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/nova": "^4.0",
-                "php": ">=8.0",
-                "spatie/laravel-activitylog": "^4.4.0"
-            },
-            "require-dev": {
-                "phpstan/phpstan": "^1.10",
-                "tightenco/duster": "^2.7"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Stepanenko3\\NovaSettings\\ToolServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "Stepanenko3\\NovaSettings\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "This Laravel Nova settings tool based on env, using nativ nova fields and resources",
-            "keywords": [
-                "Settings",
-                "laravel",
-                "nova"
-            ],
-            "support": {
-                "issues": "https://github.com/stepanenko3/nova-settings/issues",
-                "source": "https://github.com/stepanenko3/nova-settings/tree/v1.1.2"
-            },
-            "time": "2024-03-31T19:56:05+00:00"
         },
         {
             "name": "symfony/clock",
@@ -7874,16 +7771,16 @@
         },
         {
             "name": "tightenco/ziggy",
-            "version": "v2.1.0",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tighten/ziggy.git",
-                "reference": "f2ce6091078109f434e295a17adfac7378257ace"
+                "reference": "c0ee79a5bb92077e4b72d1d732c823ccba7f6a15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tighten/ziggy/zipball/f2ce6091078109f434e295a17adfac7378257ace",
-                "reference": "f2ce6091078109f434e295a17adfac7378257ace",
+                "url": "https://api.github.com/repos/tighten/ziggy/zipball/c0ee79a5bb92077e4b72d1d732c823ccba7f6a15",
+                "reference": "c0ee79a5bb92077e4b72d1d732c823ccba7f6a15",
                 "shasum": ""
             },
             "require": {
@@ -7892,6 +7789,7 @@
                 "php": ">=8.1"
             },
             "require-dev": {
+                "laravel/folio": "^1.1",
                 "orchestra/testbench": "^7.0 || ^8.0 || ^9.0",
                 "phpunit/phpunit": "^9.5 || ^10.3"
             },
@@ -7936,9 +7834,9 @@
             ],
             "support": {
                 "issues": "https://github.com/tighten/ziggy/issues",
-                "source": "https://github.com/tighten/ziggy/tree/v2.1.0"
+                "source": "https://github.com/tighten/ziggy/tree/v2.2.1"
             },
-            "time": "2024-03-26T16:04:23+00:00"
+            "time": "2024-05-16T23:31:31+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -8915,16 +8813,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "1.6.11",
+            "version": "1.6.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "81a161d0b135df89951abd52296adf97deb0723d"
+                "reference": "1f4efdd7d3beafe9807b08156dfcb176d18f1699"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/81a161d0b135df89951abd52296adf97deb0723d",
-                "reference": "81a161d0b135df89951abd52296adf97deb0723d",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/1f4efdd7d3beafe9807b08156dfcb176d18f1699",
+                "reference": "1f4efdd7d3beafe9807b08156dfcb176d18f1699",
                 "shasum": ""
             },
             "require": {
@@ -8994,7 +8892,7 @@
                 "security": "https://github.com/mockery/mockery/security/advisories",
                 "source": "https://github.com/mockery/mockery"
             },
-            "time": "2024-03-21T18:34:15+00:00"
+            "time": "2024-05-16T03:13:13+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -9971,16 +9869,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.67",
+            "version": "1.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "16ddbe776f10da6a95ebd25de7c1dbed397dc493"
+                "reference": "e524358f930e41a2b4cca1320e3b04fc26b39e0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/16ddbe776f10da6a95ebd25de7c1dbed397dc493",
-                "reference": "16ddbe776f10da6a95ebd25de7c1dbed397dc493",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e524358f930e41a2b4cca1320e3b04fc26b39e0b",
+                "reference": "e524358f930e41a2b4cca1320e3b04fc26b39e0b",
                 "shasum": ""
             },
             "require": {
@@ -10025,7 +9923,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-16T07:22:02+00:00"
+            "time": "2024-05-15T08:00:59+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
