@@ -10,6 +10,9 @@ use OpenAI\Laravel\Facades\OpenAI;
 
 class AssistantService
 {
+    /**
+     * @throws \Throwable
+     */
     public function processMessage(Message $message): mixed
     {
         // Retrieve existing assistants and their data
@@ -34,16 +37,7 @@ class AssistantService
             ],
         ]);
 
-        $data = json_decode($responseContent, true);
-
-        return $data;
-        //        if (isset($data['assistants'])) {
-        //            $this->processAssistants($data['assistants'], $message);
-        //        }
-        //
-        //        if (isset($data['suggestions'])) {
-        //            $this->processSuggestions($data['suggestions'], $message);
-        //        }
+        return json_decode($responseContent, true);
     }
 
     protected function getOpenAIResponse(array $params): string

@@ -52,7 +52,7 @@ class User extends Authenticatable
         ];
     }
 
-    public function messages(): HasMany
+    protected function messages(): HasMany
     {
         return $this->hasMany(Message::class);
     }
