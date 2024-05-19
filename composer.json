@@ -9,7 +9,6 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "bolechen/nova-activitylog": "^0.4.3",
         "denniseilander/pulse-log-files": "^0.2.0",
         "inertiajs/inertia-laravel": "^1.0",
         "laravel/framework": "^11.0",
@@ -30,7 +29,6 @@
         "silber/bouncer": "^1.0",
         "spatie/laravel-activitylog": "^4.8",
         "spatie/laravel-login-link": "^1.2",
-        "stepanenko3/nova-settings": "^1.1",
         "synapse-sentinel/ask-agent": "@dev",
         "tightenco/ziggy": "^2.0"
     },

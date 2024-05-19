@@ -10,13 +10,28 @@ use OpenAI\Responses\Assistants\AssistantResponse;
 class AssistantObserver
 {
     /**
+     * Handle the Assistant "creating" event.
+     */
+    public function creating(Assistant $assistant): void
+    {
+        $this->updateInstructions($assistant);
+    }
+
+    /**
+     * Handle the Assistant "updating" event.
+     */
+    public function updating(Assistant $assistant): void
+    {
+        $this->updateInstructions($assistant);
+    }
+
+    /**
      * Handle the Assistant "created" event.
      */
     public function created(Assistant $assistant): void
     {
         $response = $this->createOpenAiAssistant($assistant);
         $this->createUserForAssistant($assistant, $response);
-
     }
 
     /**
@@ -26,7 +41,7 @@ class AssistantObserver
     {
         OpenAI::assistants()->modify($assistant->provider_value, [
             'name' => $assistant->name,
-            'instructions' => $assistant->instructions,
+            'instructions' => $assistant->base_instructions,
             'model' => $assistant->aiModel->name,
         ]);
     }
@@ -52,7 +67,7 @@ class AssistantObserver
     {
         $response = OpenAI::assistants()->create([
             'name' => $assistant->name,
-            'instructions' => $assistant->instructions,
+            'instructions' => $assistant->base_instructions,
             'model' => $assistant->aiModel->name,
         ]);
 
@@ -73,5 +88,10 @@ class AssistantObserver
 
         $assistant->user()->associate($user);
         $assistant->save();
+    }
+
+    private function updateInstructions(Assistant $assistant): void
+    {
+        $assistant->base_instructions = view('prompts.base-instructions', ['assistant' => $assistant])->render();
     }
 }
