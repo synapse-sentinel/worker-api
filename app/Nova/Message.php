@@ -45,7 +45,7 @@ class Message extends Resource
 
             ID::make()->sortable(),
 
-            BelongsTo::make('Thread')->searchable()->sortable()->nullable(),
+            BelongsTo::make('Thread')->searchable()->nullable()->sortable()->rules('nullable'),
 
             Text::make('Abstract')->sortable()->rules('required', 'max:255')->onlyOnIndex(),
 

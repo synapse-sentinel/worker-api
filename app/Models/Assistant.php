@@ -106,7 +106,7 @@ class Assistant extends Model
             'model' => 'gpt-3.5-turbo',
             'messages' => [
                 [
-                    'role' => 'assistant', 'content' => 'please provide yourself updated instructions from this reflection:'
+                    'role' => 'system', 'content' => 'please provide yourself updated instructions from this reflection:'
                     .$instructions.
                     'referring your previous instructions.'.$this->instructions.' please provide updated instructions.',
                 ],

@@ -15,6 +15,13 @@ class ThreadObserver
         // create in open ai and persist provider_value
         $openAi = OpenAI::threads()->create(['metadata' => ['name' => $thread->name]]);
         $thread->provider_value = $openAi->id;
+
+        $thread->messages()->create([
+            'content' => $thread->description,
+            'role' => 'user',
+            'user_id' => request()->user()->id,
+
+        ]);
         $thread->save();
     }
 
