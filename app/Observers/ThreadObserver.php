@@ -16,12 +16,14 @@ class ThreadObserver
         $openAi = OpenAI::threads()->create(['metadata' => ['name' => $thread->name]]);
         $thread->provider_value = $openAi->id;
 
-        $thread->messages()->create([
-            'content' => $thread->description,
-            'role' => 'user',
-            'user_id' => request()->user()->id,
+        if (request()->user()) {
+            $thread->messages()->create([
+                'content' => $thread->description,
+                'role' => 'user',
+                'user_id' => request()->user()->id,
+            ]);
+        }
 
-        ]);
         $thread->save();
     }
 

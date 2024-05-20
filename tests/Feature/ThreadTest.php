@@ -8,6 +8,7 @@ use Illuminate\Foundation\Testing\TestCase;
 uses(TestCase::class, RefreshDatabase::class)->in('Feature');
 
 test('can create  with  factory', function () {
+
     $thread = Thread::factory()->create();
     $this->assertDatabaseHas('threads', ['id' => $thread->id]);
     $this->assertModelExists($thread);
