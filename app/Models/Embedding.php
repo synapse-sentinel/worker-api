@@ -16,10 +16,6 @@ class Embedding extends Model
         'embedding',
     ];
 
-    protected $casts = [
-        'embedding' => 'array',
-    ];
-
     public function contexts(): BelongsToMany
     {
         return $this->belongsToMany(Context::class);
