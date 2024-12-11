@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dfd593089688ab9e523203c30db4d74b",
+    "content-hash": "ba7ef408993b5577a5f350dd5be966c7",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -4966,7 +4966,7 @@
         },
         {
             "name": "partridge-rocks/recent-messages",
-            "version": "dev-filament",
+            "version": "dev-feature/migrate-this",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/RecentMessages",
@@ -9250,7 +9250,7 @@
         },
         {
             "name": "synapse-sentinel/ask-agent",
-            "version": "dev-filament",
+            "version": "dev-feature/migrate-this",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/AskAgent",
