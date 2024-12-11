@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ba7ef408993b5577a5f350dd5be966c7",
+    "content-hash": "0aa46d607a47ac712b64051631697fd6",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -1099,6 +1099,78 @@
                 }
             ],
             "time": "2024-10-09T13:47:03+00:00"
+        },
+        {
+            "name": "echolabsdev/prism",
+            "version": "v0.21.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/echolabsdev/prism.git",
+                "reference": "58ed48a5071d5214ef47484977410d817d372b23"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/echolabsdev/prism/zipball/58ed48a5071d5214ef47484977410d817d372b23",
+                "reference": "58ed48a5071d5214ef47484977410d817d372b23",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^11.0",
+                "php": "^8.3|^8.4"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.14",
+                "mockery/mockery": "^1.6",
+                "orchestra/testbench": "^9.4",
+                "pestphp/pest": "^3.0",
+                "pestphp/pest-plugin-arch": "^3.0",
+                "pestphp/pest-plugin-laravel": "^3.0",
+                "phpstan/extension-installer": "^1.3",
+                "phpstan/phpdoc-parser": "^1.24",
+                "phpstan/phpstan": "^1.11",
+                "phpstan/phpstan-deprecation-rules": "^1.2",
+                "projektgopher/whisky": "^0.7.0",
+                "rector/rector": "^1.1",
+                "symplify/rule-doc-generator-contracts": "^11.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "PrismServer": "EchoLabs\\Prism\\Facades\\PrismServer"
+                    },
+                    "providers": [
+                        "EchoLabs\\Prism\\PrismServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "EchoLabs\\Prism\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "TJ Miller",
+                    "email": "hello@echolabs.dev"
+                }
+            ],
+            "description": "A powerful Laravel package for integrating Large Language Models (LLMs) into your applications.",
+            "support": {
+                "issues": "https://github.com/echolabsdev/prism/issues",
+                "source": "https://github.com/echolabsdev/prism/tree/v0.21.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sixlive",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-12-09T17:00:27+00:00"
         },
         {
             "name": "egulias/email-validator",

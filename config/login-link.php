@@ -3,6 +3,8 @@
 use Spatie\LoginLink\Http\Controllers\LoginLinkController;
 
 return [
+
+    'allowed_hosts' => ['worker-api.test'],
     /*
      * Login links will only work in these environments. In all
      * other environments, an exception will be thrown.
