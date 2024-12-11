@@ -1,15 +1,14 @@
 {
-    "name": "laravel/laravel",
+    "name": "synapse-sentinel/worker-api",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": [
-        "laravel",
-        "framework"
-    ],
+    "description": "Your personal productivity army.",
+    "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
         "php": "^8.2",
         "denniseilander/pulse-log-files": "^0.2.0",
+        "echolabsdev/prism": "^0.21.1",
+        "filament/filament": "^3.2",
         "inertiajs/inertia-laravel": "^1.0",
         "laravel/framework": "^11.0",
         "laravel/horizon": "^5.24",
@@ -20,7 +19,7 @@
         "laravel/sanctum": "^4.0",
         "laravel/slack-notification-channel": "^3.2",
         "laravel/tinker": "^2.9",
-        "league/commonmark": "^2.4",
+        "league/commonmark": "^2.6",
         "nunomaduro/laravel-console-summary": "^1.11",
         "nunomaduro/termwind": "^2.0",
         "openai-php/laravel": "^0.8.1",
@@ -28,7 +27,7 @@
         "scrivo/highlight.php": "^9.18",
         "silber/bouncer": "^1.0",
         "spatie/laravel-activitylog": "^4.8",
-        "spatie/laravel-login-link": "^1.2",
+        "spatie/laravel-login-link": "^1.5",
         "symfony/http-client": "^7.0",
         "synapse-sentinel/ask-agent": "@dev",
         "tightenco/ziggy": "^2.0"
@@ -61,7 +60,8 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan filament:upgrade"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
